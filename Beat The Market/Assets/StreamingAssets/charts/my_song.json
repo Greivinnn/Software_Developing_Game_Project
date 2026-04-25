@@ -1,0 +1,12 @@
+{
+  "songName": "My Song",
+  "audioFile": "my_song",
+  "bpm": 120,
+  "offset": 0.5,
+  "notes": [
+    { "time": 1.0, "key": "D" },
+    { "time": 1.5, "key": "F" },
+    { "time": 2.0, "key": "J" },
+    { "time": 2.5, "key": "K" }
+  ]
+}

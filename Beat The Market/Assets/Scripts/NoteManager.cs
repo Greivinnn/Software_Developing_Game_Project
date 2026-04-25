@@ -11,67 +11,105 @@ public class NoteManager : MonoBehaviour
     public float noteSpeed = 5f;
     public List<NoteObject> activeNotes = new List<NoteObject>();
 
-    // Spawn timing
+    // Random spawn settings (kept for testing/sandbox mode)
     public float minBurstInterval = 0.15f;
     public float maxBurstInterval = 0.3f;
     public float minCalmInterval = 0.8f;
     public float maxCalmInterval = 1.5f;
-
-    // Difficulty scaling
     public float speedPerMultiplier = 0.3f;
-
-    // minimum gap between notes to prevent overlapping
     public float minNoteDistance = 0.8f;
-
-    // Y spawn range (top, middle, bottom)
     public float minSpawnY = -2f;
     public float maxSpawnY = 2f;
 
-    private void Awake()
+    // Set to true when a chart is loaded; disables random spawning
+    [HideInInspector] public bool chartMode = false;
+
+    private float lastSpawnY = 0f;
+
+    private readonly Dictionary<KeyCode, float> keyLanes = new Dictionary<KeyCode, float>
     {
-        Instance = this;
-    }
+        { KeyCode.D, -1.5f },
+        { KeyCode.F, -0.5f },
+        { KeyCode.J,  0.5f },
+        { KeyCode.K,  1.5f }
+    };
+
+    private void Awake() => Instance = this;
 
     private void Start()
     {
-        StartCoroutine(SpawnLoop());
+        if (!chartMode)
+            StartCoroutine(SpawnLoop());
     }
 
+    public void SpawnChartNote(KeyCode key, float hitTime)
+    {
+        float spawnX = spawnPoint.position.x;
+        float hitX = 0f; // hit zone is at X=0
+
+        // Calculate exact speed so this note arrives at hitX precisely at hitTime.
+        // distance / time_remaining = required speed
+        float timeRemaining = hitTime - SongManager.Instance.GetSongTime();
+        float distance = spawnX - hitX; // positive because spawnX > hitX
+
+        // Guard against bad timing data
+        if (timeRemaining <= 0f)
+        {
+            Debug.LogWarning($"Note at time {hitTime} is already late, skipping.");
+            return;
+        }
+
+        float exactSpeed = distance / timeRemaining;
+
+        float spawnY = keyLanes.ContainsKey(key) ? keyLanes[key] : 0f;
+        Vector3 spawnPos = new Vector3(spawnX, spawnY, 0);
+
+        GameObject obj = Instantiate(notePrefab, spawnPos, Quaternion.identity);
+        NoteObject note = obj.GetComponent<NoteObject>();
+
+        NoteData data = new NoteData
+        {
+            time = hitTime,
+            key = key,
+            hit = false
+        };
+
+        note.data = data;
+        note.speed = exactSpeed; // precise per-note speed
+        activeNotes.Add(note);
+    }
+
+    // -------------------------------------------------------
+    // Random spawn (original logic)
+    // -------------------------------------------------------
     IEnumerator SpawnLoop()
     {
         while (true)
         {
             bool isBurst = Random.value > 0.5f;
-
             if (isBurst)
             {
-                // fast burst phase: spawns 4-8 notes quickly
                 int burstCount = Random.Range(4, 8);
                 for (int i = 0; i < burstCount; i++)
                 {
-                    SpawnNote(GetRandomKey());
+                    SpawnRandomNote(GetRandomKey());
                     yield return new WaitForSeconds(Random.Range(minBurstInterval, maxBurstInterval));
                 }
             }
             else
             {
-                // calm phase: spawns 2-3 notes slowly
                 int calmCount = Random.Range(2, 3);
                 for (int i = 0; i < calmCount; i++)
                 {
-                    SpawnNote(GetRandomKey());
+                    SpawnRandomNote(GetRandomKey());
                     yield return new WaitForSeconds(Random.Range(minCalmInterval, maxCalmInterval));
                 }
             }
-
-            // brief pause between phases
             yield return new WaitForSeconds(Random.Range(0.3f, 0.7f));
         }
     }
 
-    private float lastSpawnY = 0f; // tracks last Y position
-
-    void SpawnNote(KeyCode key)
+    void SpawnRandomNote(KeyCode key)
     {
         foreach (var existing in activeNotes)
         {
@@ -79,7 +117,6 @@ public class NoteManager : MonoBehaviour
                 return;
         }
 
-        // move up or down a small step from last position, like a chart line
         float step = Random.Range(0.3f, 1.2f);
         float direction = Random.value > 0.5f ? 1f : -1f;
         lastSpawnY = Mathf.Clamp(lastSpawnY + (step * direction), minSpawnY, maxSpawnY);
@@ -107,27 +144,18 @@ public class NoteManager : MonoBehaviour
         return keys[Random.Range(0, keys.Length)];
     }
 
-    public void RemoveNote(NoteObject note)
-    {
-        activeNotes.Remove(note);
-    }
+    public void RemoveNote(NoteObject note) => activeNotes.Remove(note);
 
     public NoteObject GetClosestNote(KeyCode key)
     {
         NoteObject closest = null;
-        float minDistance = float.MaxValue;
+        float minDist = float.MaxValue;
 
         foreach (var note in activeNotes)
         {
-            if (note.data.key != key || note.data.hit)
-                continue;
-
+            if (note.data.key != key || note.data.hit) continue;
             float dist = Mathf.Abs(note.transform.position.x);
-            if (dist < minDistance)
-            {
-                minDistance = dist;
-                closest = note;
-            }
+            if (dist < minDist) { minDist = dist; closest = note; }
         }
 
         return closest;
