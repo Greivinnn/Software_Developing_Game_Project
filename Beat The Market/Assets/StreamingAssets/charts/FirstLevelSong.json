@@ -1,0 +1,12 @@
+{
+  "songName": "FirstLevelSong",
+  "audioFile": "FirstLevelSong",
+  "bpm": 64,
+  "offset": 0.07,
+  "notes": [
+    { "time": 1.0, "key": "D" },
+    { "time": 1.5, "key": "F" },
+    { "time": 2.0, "key": "J" },
+    { "time": 2.5, "key": "K" }
+  ]
+}

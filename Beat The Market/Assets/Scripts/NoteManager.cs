@@ -160,4 +160,23 @@ public class NoteManager : MonoBehaviour
 
         return closest;
     }
+
+    public void SpawnPreProcessedNote(PreProcessedNote n)
+    {
+        Vector3 spawnPos = new Vector3(spawnPoint.position.x, n.laneY, 0);
+
+        GameObject obj = Instantiate(notePrefab, spawnPos, Quaternion.identity);
+        NoteObject note = obj.GetComponent<NoteObject>();
+
+        NoteData data = new NoteData
+        {
+            time = n.hitTime,
+            key = n.key,
+            hit = false
+        };
+
+        note.data = data;
+        note.speed = n.speed;
+        activeNotes.Add(note);
+    }
 }
