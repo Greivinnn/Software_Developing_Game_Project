@@ -16,11 +16,17 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // Prefer audio time — it never drifts. Fall back to deltaTime before song loads.
+        // If possible alway use audio source time for better syncing and no bugs
+        // fall back to delta time if anything fails
         if (syncToAudio && audioSource != null && audioSource.isPlaying)
+        {
             songTime = audioSource.time;
+        }
         else
+        {
             songTime += Time.deltaTime;
+        }
+            
     }
 
     // Called by SongManager when audio starts
@@ -39,6 +45,7 @@ public class GameManager : MonoBehaviour
         syncToAudio = false;
         Debug.Log($"Song over! Final score: {money}");
         // TODO: show results screen
+        // TODO: stop song from playing 
     }
 
     public void HitNote()

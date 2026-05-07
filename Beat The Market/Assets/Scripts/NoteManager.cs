@@ -1,19 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Manages all active notes. Notes are spawned externally by SongManager via
-/// SpawnPreProcessedNote(). The old random-spawn coroutine has been removed.
-/// </summary>
+// <summary>
+// Manages all active notes. Notes are spawned externally by SongManager via
+// SpawnPreProcessedNote().
+// </summary>
 public class NoteManager : MonoBehaviour
 {
     public static NoteManager Instance;
 
-    [Header("Note Prefab & Spawn")]
     public GameObject notePrefab;
     public Transform spawnPoint;
 
-    [Header("Active Notes (read-only in inspector)")]
     public List<NoteObject> activeNotes = new List<NoteObject>();
 
     // Set to true by SongManager before playback begins
@@ -25,10 +23,10 @@ public class NoteManager : MonoBehaviour
     // Spawning
     // -------------------------------------------------------------------------
 
-    /// <summary>
-    /// Spawns a note using data pre-calculated by ChartPreProcessor.
-    /// Called by SongManager.Update() when a note's spawnTime arrives.
-    /// </summary>
+    // <summary>
+    // Spawns a note using data pre-calculated by ChartPreProcessor.
+    // Called by SongManager.Update() when a note's spawnTime arrives.
+    // </summary>
     public void SpawnPreProcessedNote(PreProcessedNote n)
     {
         Vector3 spawnPos = new Vector3(spawnPoint.position.x, n.laneY, 0f);

@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Holds all data needed to spawn one note — calculated upfront before gameplay.
-/// SongManager pre-processes the entire chart into a list of these, then
-/// Update() walks the list and spawns notes as their spawnTime arrives.
-/// </summary>
+// <summary>
+// Holds all data needed to spawn one note — calculated upfront before gameplay.
+// SongManager pre-processes the entire chart into a list of these, then
+// Update() walks the list and spawns notes as their spawnTime arrives.
+// </summary>
 public class PreProcessedNote
 {
     public float spawnTime;  // when to instantiate the GameObject (hitTime - spawnLeadTime)
@@ -15,29 +15,26 @@ public class PreProcessedNote
     public float laneY;      // world Y position for this note's lane
 }
 
-/// <summary>
-/// Converts a ChartData JSON into a pre-sorted list of PreProcessedNotes.
-/// All timing and speed calculations happen here, once, before the song starts.
-/// </summary>
+// <summary>
+// Converts a ChartData JSON into a pre-sorted list of PreProcessedNotes.
+// All timing and speed calculations happen here, once, before the song starts.
+// </summary>
 public static class ChartPreProcessor
 {
-    // Lane Y positions — must match NoteManager.keyLanes
+    // Lane Y positions
     private static readonly Dictionary<KeyCode, float> keyLanes = new Dictionary<KeyCode, float>
     {
-        { KeyCode.D, -1.5f },
-        { KeyCode.F, -0.5f },
-        { KeyCode.J,  0.5f },
-        { KeyCode.K,  1.5f }
+        { KeyCode.D, 3.5f }, // (top)
+        { KeyCode.F, 1.5f },
+        { KeyCode.J, -1.5f },
+        { KeyCode.K, -3.5f }  // (bottom)
     };
 
-    /// <summary>
-    /// Converts a hand-authored ChartData (loaded from JSON) into a pre-processed
-    /// note list ready for SongManager to execute.
-    /// </summary>
-    /// <param name="chart">The deserialized chart JSON.</param>
-    /// <param name="spawnX">World X of the note spawn point.</param>
-    /// <param name="hitX">World X of the hit zone (typically 0).</param>
-    /// <param name="spawnLeadTime">Seconds before hitTime to spawn the note.</param>
+    // <summary>
+    // Converts a hand-authored ChartData (loaded from JSON) into a pre-processed
+    // note list ready for SongManager to execute.
+    // </summary>
+    
     public static List<PreProcessedNote> ProcessFromChart(
         ChartData chart,
         float spawnX,
@@ -74,11 +71,9 @@ public static class ChartPreProcessor
     // Helpers
     // -------------------------------------------------------------------------
 
-    /// <summary>
-    /// Parses a key string from the chart JSON into a Unity KeyCode.
-    /// Supports bare letters ("D") and full KeyCode names ("Alpha1").
-    /// Defaults to D on failure so notes are never silently dropped.
-    /// </summary>
+    // <summary>
+    // converts the string key "D" in the JSON file to a readable KeyCode for unity
+    // </summary>
     private static KeyCode ParseKey(string keyStr)
     {
         if (string.IsNullOrEmpty(keyStr))

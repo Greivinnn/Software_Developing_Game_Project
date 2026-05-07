@@ -5,8 +5,8 @@
   "offset": 0.07,
   "notes": [
     { "time": 1.0, "key": "D" },
-    { "time": 1.5, "key": "F" },
-    { "time": 2.0, "key": "J" },
-    { "time": 2.5, "key": "K" }
+    { "time": 1.0, "key": "F" },
+    { "time": 1.0, "key": "J" },
+    { "time": 1.0, "key": "K" }
   ]
 }

@@ -3,17 +3,17 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
-/// <summary>
-/// Owns the full chart-load → pre-process → playback pipeline.
-/// 
-/// LEVEL SELECTION: Set SongManager.ChartToLoad from your menu/scene before
-/// this scene loads, e.g.:
-///     SongManager.ChartToLoad = "song2";
-///     SceneManager.LoadScene("GameScene");
-/// 
-/// Charts live in:  Assets/StreamingAssets/charts/<name>.json
-/// Audio lives in:  Assets/Resources/Audio/<audioFile>.mp3  (or .ogg / .wav)
-/// </summary>
+// <summary>
+// Owns the full chart-load → pre-process → playback pipeline.
+// 
+// LEVEL SELECTION: Set SongManager.ChartToLoad from the menu/scene before
+// this scene loads, example:
+//     SongManager.ChartToLoad = "song2";
+//     SceneManager.LoadScene("GameScene");
+// 
+// Charts live in:  Assets/StreamingAssets/charts/<name>.json
+// Audio lives in:  Assets/Resources/Audio/<audioFile>.mp3  (or .ogg / .wav)
+// </summary>
 public class SongManager : MonoBehaviour
 {
     public static SongManager Instance;
@@ -21,11 +21,9 @@ public class SongManager : MonoBehaviour
     // Set this from your level-select screen before loading the game scene
     public static string ChartToLoad = "FirstLevelSong";
 
-    [Header("References")]
     public NoteManager noteManager;
     public AudioSource audioSource;
 
-    [Header("Settings")]
     public float spawnLeadTime = 3f;
 
     // --- private state ---
@@ -99,7 +97,7 @@ public class SongManager : MonoBehaviour
         if (chart.offset > 0f)
             yield return new WaitForSeconds(chart.offset);
 
-        // 5. Start!
+        // 5. Start
         noteManager.chartMode = true;
         audioSource.Play();
         isPlaying = true;
