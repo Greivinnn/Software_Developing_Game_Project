@@ -1,19 +1,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Holds everything needed to spawn one note — all calculated upfront
+/// <summary>
+/// Holds all data needed to spawn one note — calculated upfront before gameplay.
+/// SongManager pre-processes the entire chart into a list of these, then
+/// Update() walks the list and spawns notes as their spawnTime arrives.
+/// </summary>
 public class PreProcessedNote
 {
-    public float spawnTime;  // when to instantiate the GameObject
-    public float hitTime;    // when it should reach the hit zone
-    public KeyCode key;        // which key the player must press
-    public float speed;      // exact units/sec to arrive on time
-    public float laneY;      // world Y position for the note's lane
+    public float spawnTime;  // when to instantiate the GameObject (hitTime - spawnLeadTime)
+    public float hitTime;    // when the note should reach the hit zone (X=0)
+    public KeyCode key;      // which key the player must press
+    public float speed;      // exact units/sec so the note arrives at hitX on time
+    public float laneY;      // world Y position for this note's lane
 }
 
+/// <summary>
+/// Converts a ChartData JSON into a pre-sorted list of PreProcessedNotes.
+/// All timing and speed calculations happen here, once, before the song starts.
+/// </summary>
 public static class ChartPreProcessor
 {
-    // Lane Y positions matching NoteManager.keyLanes
+    // Lane Y positions — must match NoteManager.keyLanes
     private static readonly Dictionary<KeyCode, float> keyLanes = new Dictionary<KeyCode, float>
     {
         { KeyCode.D, -1.5f },
@@ -22,107 +30,67 @@ public static class ChartPreProcessor
         { KeyCode.K,  1.5f }
     };
 
-    private static readonly KeyCode[] keys = { KeyCode.D, KeyCode.F, KeyCode.J, KeyCode.K };
-
-    // Main entry point — call this after beat detection, before gameplay starts.
-    // spawnX       = world X of your spawnPoint transform
-    // hitX         = world X of your hit zone (0f)
-    // spawnLeadTime = how many seconds before hitTime to spawn the note
-    public static List<PreProcessedNote> Process(
-        List<float> beatTimes,
-        float spawnX,
-        float hitX,
-        float spawnLeadTime)
-    {
-        List<PreProcessedNote> result = new List<PreProcessedNote>();
-
-        float distance = spawnX - hitX; // always positive
-
-        // Pattern state — keeps track of what key came last so we don't
-        // repeat the same key twice in a row, and alternate lanes nicely
-        int lastKeyIndex = -1;
-
-        for (int i = 0; i < beatTimes.Count; i++)
-        {
-            float hitTime = beatTimes[i];
-
-            // Pick the next key — avoid repeating the same lane twice
-            int keyIndex = PickKeyIndex(lastKeyIndex, i);
-            lastKeyIndex = keyIndex;
-
-            KeyCode key = keys[keyIndex];
-
-            float spawnTime = hitTime - spawnLeadTime;
-            float speed = distance / spawnLeadTime; // uniform since we control spawn time
-
-            PreProcessedNote note = new PreProcessedNote
-            {
-                spawnTime = spawnTime,
-                hitTime = hitTime,
-                key = key,
-                speed = speed,
-                laneY = keyLanes[key]
-            };
-
-            result.Add(note);
-        }
-
-        Debug.Log($"ChartPreProcessor: prepared {result.Count} notes.");
-        return result;
-    }
-
-    // Also accepts a ChartData (hand-authored JSON chart) and pre-processes that
-    // instead of auto-detected beats — gives you the best of both worlds
+    /// <summary>
+    /// Converts a hand-authored ChartData (loaded from JSON) into a pre-processed
+    /// note list ready for SongManager to execute.
+    /// </summary>
+    /// <param name="chart">The deserialized chart JSON.</param>
+    /// <param name="spawnX">World X of the note spawn point.</param>
+    /// <param name="hitX">World X of the hit zone (typically 0).</param>
+    /// <param name="spawnLeadTime">Seconds before hitTime to spawn the note.</param>
     public static List<PreProcessedNote> ProcessFromChart(
         ChartData chart,
         float spawnX,
         float hitX,
         float spawnLeadTime)
     {
-        List<PreProcessedNote> result = new List<PreProcessedNote>();
+        List<PreProcessedNote> result = new List<PreProcessedNote>(chart.notes.Count);
 
-        float distance = spawnX - hitX;
+        float distance = spawnX - hitX; // travel distance, always positive
+        float speed = distance / spawnLeadTime; // uniform speed: all notes travel the same distance in the same lead time
 
         foreach (ChartNote cn in chart.notes)
         {
             KeyCode key = ParseKey(cn.key);
 
-            PreProcessedNote note = new PreProcessedNote
+            result.Add(new PreProcessedNote
             {
                 spawnTime = cn.time - spawnLeadTime,
                 hitTime = cn.time,
                 key = key,
-                speed = distance / spawnLeadTime,
-                laneY = keyLanes.ContainsKey(key) ? keyLanes[key] : 0f
-            };
-
-            result.Add(note);
+                speed = speed,
+                laneY = keyLanes.TryGetValue(key, out float laneY) ? laneY : 0f
+            });
         }
 
+        // Sort by spawn time in case the JSON isn't in order
         result.Sort((a, b) => a.spawnTime.CompareTo(b.spawnTime));
 
-        Debug.Log($"ChartPreProcessor: prepared {result.Count} notes from chart '{chart.songName}'.");
+        Debug.Log($"ChartPreProcessor: {result.Count} notes prepared from '{chart.songName}'.");
         return result;
     }
 
-    // Picks a key index that avoids the last one and loosely alternates sides
-    private static int PickKeyIndex(int lastIndex, int step)
-    {
-        // Simple pattern: cycle through keys with slight variation
-        int next = (lastIndex + 1 + (step % 2)) % keys.Length;
-        if (next == lastIndex) next = (next + 1) % keys.Length;
-        return next;
-    }
+    // -------------------------------------------------------------------------
+    // Helpers
+    // -------------------------------------------------------------------------
 
+    /// <summary>
+    /// Parses a key string from the chart JSON into a Unity KeyCode.
+    /// Supports bare letters ("D") and full KeyCode names ("Alpha1").
+    /// Defaults to D on failure so notes are never silently dropped.
+    /// </summary>
     private static KeyCode ParseKey(string keyStr)
     {
-        return keyStr.ToUpper() switch
+        if (string.IsNullOrEmpty(keyStr))
         {
-            "D" => KeyCode.D,
-            "F" => KeyCode.F,
-            "J" => KeyCode.J,
-            "K" => KeyCode.K,
-            _ => KeyCode.D
-        };
+            Debug.LogWarning("ChartPreProcessor: Empty key string, defaulting to D.");
+            return KeyCode.D;
+        }
+
+        if (System.Enum.TryParse(keyStr, ignoreCase: true, out KeyCode parsed))
+            return parsed;
+
+        Debug.LogWarning($"ChartPreProcessor: Unknown key '{keyStr}', defaulting to D.");
+        return KeyCode.D;
     }
 }

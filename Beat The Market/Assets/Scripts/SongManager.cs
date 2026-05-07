@@ -1,12 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
+/// <summary>
+/// Owns the full chart-load → pre-process → playback pipeline.
+/// 
+/// LEVEL SELECTION: Set SongManager.ChartToLoad from your menu/scene before
+/// this scene loads, e.g.:
+///     SongManager.ChartToLoad = "song2";
+///     SceneManager.LoadScene("GameScene");
+/// 
+/// Charts live in:  Assets/StreamingAssets/charts/<name>.json
+/// Audio lives in:  Assets/Resources/Audio/<audioFile>.mp3  (or .ogg / .wav)
+/// </summary>
 public class SongManager : MonoBehaviour
 {
     public static SongManager Instance;
+
+    // Set this from your level-select screen before loading the game scene
+    public static string ChartToLoad = "FirstLevelSong";
 
     [Header("References")]
     public NoteManager noteManager;
@@ -15,47 +28,32 @@ public class SongManager : MonoBehaviour
     [Header("Settings")]
     public float spawnLeadTime = 3f;
 
-    [Header("Beat Detection")]
-    // Higher = fewer beats detected (less sensitive)
-    // Lower  = more beats detected (more sensitive)
-    // Good range: 1.3 (very sensitive) to 2.0 (only strong hits)
-    public float beatSensitivity = 1.5f;
-
-    // If true: uses beat detection on the audio.
-    // If false: uses the hand-authored notes in the JSON chart.
-    public bool useBeatDetection = false;
-
     // --- private state ---
-    private ChartData currentChart;
-    private List<PreProcessedNote> noteQueue;   // fully pre-processed, sorted by spawnTime
+    private System.Collections.Generic.List<PreProcessedNote> noteQueue;
     private int nextNoteIndex = 0;
     private bool isPlaying = false;
 
-    private float songTime => audioSource.time;
+    public float GetSongTime() => audioSource.time;
+    public bool IsPlaying() => isPlaying;
 
     private void Awake() => Instance = this;
 
     private void Start()
     {
-        LoadAndPlay("FirstLevelSong");
+        StartCoroutine(LoadChartAndStart(ChartToLoad));
     }
 
-    // -------------------------------------------------------
-    // Public API
-    // -------------------------------------------------------
-    public void LoadAndPlay(string chartFileName)
-    {
-        StartCoroutine(LoadChartAndStart(chartFileName));
-    }
+    // -------------------------------------------------------------------------
+    // Loading + pre-processing (all happens before playback begins)
+    // -------------------------------------------------------------------------
 
-    // -------------------------------------------------------
-    // Loading + pre-processing (all happens before playback)
-    // -------------------------------------------------------
     IEnumerator LoadChartAndStart(string chartFileName)
     {
         // 1. Load JSON chart
         string chartPath = Path.Combine(
             Application.streamingAssetsPath, "charts", chartFileName + ".json");
+
+        ChartData chart = null;
 
         using (UnityWebRequest request = UnityWebRequest.Get(chartPath))
         {
@@ -63,85 +61,79 @@ public class SongManager : MonoBehaviour
 
             if (request.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError("Failed to load chart: " + chartPath);
+                Debug.LogError($"SongManager: Failed to load chart at '{chartPath}': {request.error}");
                 yield break;
             }
 
-            currentChart = JsonUtility.FromJson<ChartData>(request.downloadHandler.text);
-            Debug.Log("Chart loaded: " + currentChart.songName);
+            chart = JsonUtility.FromJson<ChartData>(request.downloadHandler.text);
+
+            if (chart == null || chart.notes == null || chart.notes.Count == 0)
+            {
+                Debug.LogError("SongManager: Chart is empty or malformed.");
+                yield break;
+            }
+
+            Debug.Log($"SongManager: Loaded chart '{chart.songName}' ({chart.notes.Count} notes).");
         }
 
         // 2. Load audio clip
-        ResourceRequest audioRequest = Resources.LoadAsync<AudioClip>(
-            "Audio/" + currentChart.audioFile);
+        ResourceRequest audioRequest = Resources.LoadAsync<AudioClip>("Audio/" + chart.audioFile);
         yield return audioRequest;
 
         AudioClip clip = audioRequest.asset as AudioClip;
         if (clip == null)
         {
-            Debug.LogError("Failed to load audio: " + currentChart.audioFile);
+            Debug.LogError($"SongManager: Failed to load audio clip 'Audio/{chart.audioFile}'.");
             yield break;
         }
 
         audioSource.clip = clip;
-        Debug.Log("Audio loaded: " + clip.name);
+        Debug.Log($"SongManager: Audio loaded — '{clip.name}'.");
 
-        // 3. Pre-process notes (this is the new step � happens before Play())
+        // 3. Pre-process all notes upfront (calculates spawn time, speed, lane for each)
         float spawnX = noteManager.spawnPoint.position.x;
-        float hitX = 0f;
-
-        if (useBeatDetection)
-        {
-            Debug.Log("Analysing beats...");
-            List<float> beats = null;
-            yield return noteManager.StartCoroutine(
-                BeatAnalyser.AnalyseAsync(clip, beatSensitivity, result => beats = result));
-            noteQueue = ChartPreProcessor.Process(beats, spawnX, hitX, spawnLeadTime);
-        }
-        else
-        {
-            // Use the hand-authored notes from the JSON
-            noteQueue = ChartPreProcessor.ProcessFromChart(
-                currentChart, spawnX, hitX, spawnLeadTime);
-        }
-
+        noteQueue = ChartPreProcessor.ProcessFromChart(chart, spawnX, hitX: 0f, spawnLeadTime);
         nextNoteIndex = 0;
 
-        // 4. Apply offset then start
-        if (currentChart.offset > 0f)
-            yield return new WaitForSeconds(currentChart.offset);
+        // 4. Apply chart offset (e.g. silence at the start of an audio file)
+        if (chart.offset > 0f)
+            yield return new WaitForSeconds(chart.offset);
 
+        // 5. Start!
+        noteManager.chartMode = true;
         audioSource.Play();
         isPlaying = true;
 
         GameManager.Instance.OnSongStart(audioSource);
-        Debug.Log("Now playing: " + currentChart.songName);
+        Debug.Log($"SongManager: Now playing '{chart.songName}'.");
     }
 
-    // -------------------------------------------------------
-    // Spawn loop � just executes the pre-built queue
-    // -------------------------------------------------------
+    // -------------------------------------------------------------------------
+    // Spawn loop — executes the pre-built queue each frame
+    // -------------------------------------------------------------------------
+
     private void Update()
     {
         if (!isPlaying || noteQueue == null) return;
 
-        // Walk through the pre-processed list and spawn anything whose
-        // spawnTime has arrived. Since the list is sorted we can stop early.
+        float songTime = audioSource.time;
+
+        // Spawn every note whose spawnTime has arrived.
+        // The queue is pre-sorted so we stop as soon as we hit a future note.
         while (nextNoteIndex < noteQueue.Count &&
                noteQueue[nextNoteIndex].spawnTime <= songTime)
         {
-            PreProcessedNote n = noteQueue[nextNoteIndex];
+            noteManager.SpawnPreProcessedNote(noteQueue[nextNoteIndex]);
             nextNoteIndex++;
-            noteManager.SpawnPreProcessedNote(n);
         }
 
-        // End of song
-        if (nextNoteIndex >= noteQueue.Count && !audioSource.isPlaying)
+        // End of song: all notes spawned AND audio has finished
+        if (nextNoteIndex >= noteQueue.Count &&
+            audioSource.clip != null &&
+            audioSource.time >= audioSource.clip.length - 0.05f)
         {
             isPlaying = false;
             GameManager.Instance.OnSongEnd();
         }
     }
-
-    public float GetSongTime() => songTime;
 }
