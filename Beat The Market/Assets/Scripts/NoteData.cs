@@ -7,4 +7,6 @@ public class NoteData
     public float time;
     public KeyCode key;
     public bool hit;
+    public float duration;   // 0 = tap, >0 = hold
+    public bool isBeingHeld; // true while player holds the key
 }
