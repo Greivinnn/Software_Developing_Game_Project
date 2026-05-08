@@ -30,6 +30,8 @@ public class SongManager : MonoBehaviour
     private System.Collections.Generic.List<PreProcessedNote> noteQueue;
     private int nextNoteIndex = 0;
     private bool isPlaying = false;
+    private float preRollTimer = 0f;
+    private bool songStarted = false;
 
     public float GetSongTime() => audioSource.time;
     public bool IsPlaying() => isPlaying;
@@ -88,20 +90,25 @@ public class SongManager : MonoBehaviour
         audioSource.clip = clip;
         Debug.Log($"SongManager: Audio loaded — '{clip.name}'.");
 
-        // 3. Pre-process all notes upfront (calculates spawn time, speed, lane for each)
+        // 3. Pre-process all notes upfront
         float spawnX = noteManager.spawnPoint.position.x;
         noteQueue = ChartPreProcessor.ProcessFromChart(chart, spawnX, hitX: 0f, spawnLeadTime);
         nextNoteIndex = 0;
 
-        // 4. Apply chart offset (e.g. silence at the start of an audio file)
+        // 4. Start spawning notes immediately so they can travel to the hit zone
+        noteManager.chartMode = true;
+        isPlaying = true;
+
+        // 5. Wait for notes to travel, THEN play the song
+        yield return new WaitForSeconds(spawnLeadTime);
+
+        // 6. Fine-tune offset if needed
         if (chart.offset > 0f)
             yield return new WaitForSeconds(chart.offset);
 
-        // 5. Start
-        noteManager.chartMode = true;
+        // 7. Switch Update() to audio time and start the song
+        songStarted = true;
         audioSource.Play();
-        isPlaying = true;
-
         GameManager.Instance.OnSongStart(audioSource);
         Debug.Log($"SongManager: Now playing '{chart.songName}'.");
     }
@@ -114,10 +121,19 @@ public class SongManager : MonoBehaviour
     {
         if (!isPlaying || noteQueue == null) return;
 
-        float songTime = audioSource.time;
+        float songTime;
 
-        // Spawn every note whose spawnTime has arrived.
-        // The queue is pre-sorted so we stop as soon as we hit a future note.
+        if (songStarted)
+        {
+            songTime = audioSource.time;
+        }
+        else
+        {
+            // Count up from -spawnLeadTime toward 0 before song starts
+            preRollTimer += Time.deltaTime;
+            songTime = preRollTimer - spawnLeadTime;
+        }
+
         while (nextNoteIndex < noteQueue.Count &&
                noteQueue[nextNoteIndex].spawnTime <= songTime)
         {
@@ -125,7 +141,6 @@ public class SongManager : MonoBehaviour
             nextNoteIndex++;
         }
 
-        // End of song: all notes spawned AND audio has finished
         if (nextNoteIndex >= noteQueue.Count &&
             audioSource.clip != null &&
             audioSource.time >= audioSource.clip.length - 0.05f)

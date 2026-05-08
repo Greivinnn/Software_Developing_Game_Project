@@ -17,7 +17,25 @@ public class NoteManager : MonoBehaviour
     // Set to true by SongManager before playback begins
     [HideInInspector] public bool chartMode = false;
 
-    private void Awake() => Instance = this;
+    public Sprite spriteD;
+    public Sprite spriteF;
+    public Sprite spriteJ;
+    public Sprite spriteK;
+
+    private Dictionary<KeyCode, Sprite> noteSprites;
+
+    private void Awake()
+    {
+        Instance = this;
+
+        noteSprites = new Dictionary<KeyCode, Sprite>
+        {
+            { KeyCode.D, spriteD },
+            { KeyCode.F, spriteF },
+            { KeyCode.J, spriteJ },
+            { KeyCode.K, spriteK }
+        };
+    }
 
     // -------------------------------------------------------------------------
     // Spawning
@@ -38,10 +56,19 @@ public class NoteManager : MonoBehaviour
         {
             time = n.hitTime,
             key = n.key,
-            hit = false
+            hit = false,
+            duration = n.duration
         };
-
         note.speed = n.speed;
+        note.Init();
+
+        // Apply the correct sprite for this key
+        if (noteSprites.TryGetValue(n.key, out Sprite sprite))
+        {
+            SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+            if (sr != null) sr.sprite = sprite;
+        }
+
         activeNotes.Add(note);
     }
 
@@ -69,4 +96,15 @@ public class NoteManager : MonoBehaviour
     }
 
     public void RemoveNote(NoteObject note) => activeNotes.Remove(note);
+
+    // Returns a hold note that is currently being held for the given key
+    public NoteObject GetActiveHoldNote(KeyCode key)
+    {
+        foreach (var note in activeNotes)
+        {
+            if (note.data.key == key && note.data.isBeingHeld)
+                return note;
+        }
+        return null;
+    }
 }

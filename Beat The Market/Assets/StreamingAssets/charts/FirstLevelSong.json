@@ -2,11 +2,14 @@
   "songName": "FirstLevelSong",
   "audioFile": "FirstLevelSong",
   "bpm": 64,
-  "offset": 0.07,
+  "offset": 0,
   "notes": [
-    { "time": 1.0, "key": "D" },
-    { "time": 1.0, "key": "F" },
-    { "time": 1.0, "key": "J" },
-    { "time": 1.0, "key": "K" }
+    { "time": 1.0, "key": "D", "duration": 0.0},
+    { "time": 1.0, "key": "F", "duration": 0.0},
+    { "time": 1.0, "key": "J", "duration": 0.0},
+    { "time": 5.0, "key": "D", "duration": 0.0},
+    { "time": 8.0, "key": "F", "duration": 0.0},
+    { "time": 10.0, "key": "J", "duration": 0.0},
+    { "time": 7.0, "key": "K", "duration": 0.0}
   ]
-}
+} 

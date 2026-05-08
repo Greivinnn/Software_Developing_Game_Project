@@ -13,6 +13,7 @@ public class PreProcessedNote
     public KeyCode key;      // which key the player must press
     public float speed;      // exact units/sec so the note arrives at hitX on time
     public float laneY;      // world Y position for this note's lane
+    public float duration;   // duration of the note 0 = tap, >0 = hold note
 }
 
 // <summary>
@@ -56,7 +57,8 @@ public static class ChartPreProcessor
                 hitTime = cn.time,
                 key = key,
                 speed = speed,
-                laneY = keyLanes.TryGetValue(key, out float laneY) ? laneY : 0f
+                laneY = keyLanes.TryGetValue(key, out float laneY) ? laneY : 0f,
+                duration = cn.duration
             });
         }
 
