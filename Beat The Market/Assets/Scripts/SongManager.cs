@@ -25,6 +25,7 @@ public class SongManager : MonoBehaviour
     public AudioSource audioSource;
 
     public float spawnLeadTime = 3f;
+    public float noteSpeed = 15f;
 
     // --- private state ---
     private System.Collections.Generic.List<PreProcessedNote> noteQueue;
@@ -92,7 +93,8 @@ public class SongManager : MonoBehaviour
 
         // 3. Pre-process all notes upfront
         float spawnX = noteManager.spawnPoint.position.x;
-        noteQueue = ChartPreProcessor.ProcessFromChart(chart, spawnX, hitX: 0f, spawnLeadTime);
+        float hitX = noteManager.hitZone.transform.position.x;
+        noteQueue = ChartPreProcessor.ProcessFromChart(chart, spawnX, hitX, spawnLeadTime, noteSpeed);
         nextNoteIndex = 0;
 
         // 4. Start spawning notes immediately so they can travel to the hit zone

@@ -20,9 +20,10 @@ public class InputManager : MonoBehaviour
 
             if (note != null)
             {
-                float timing = Mathf.Abs(note.transform.position.x);
+                float hitX = noteManager.hitZone.transform.position.x;
+                float timing = Mathf.Abs(note.transform.position.x - hitX);
 
-                if (timing < hitWindow) 
+                if (timing < hitWindow)
                 {
                     note.OnHit();
                 }
@@ -33,14 +34,13 @@ public class InputManager : MonoBehaviour
             }
         }
 
-        // Key released — notify any active hold note
         if (Input.GetKeyUp(key))
         {
             NoteObject note = noteManager.GetActiveHoldNote(key);
             if (note != null)
             {
                 note.OnRelease();
-            } 
+            }
         }
     }
 }

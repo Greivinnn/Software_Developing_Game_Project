@@ -21,6 +21,8 @@ public class NoteManager : MonoBehaviour
     public Sprite spriteF;
     public Sprite spriteJ;
     public Sprite spriteK;
+    
+    public HitZone hitZone;
 
     private Dictionary<KeyCode, Sprite> noteSprites;
 
@@ -84,11 +86,12 @@ public class NoteManager : MonoBehaviour
     {
         NoteObject closest = null;
         float minDist = float.MaxValue;
+        float hitX = hitZone.transform.position.x;
 
         foreach (var note in activeNotes)
         {
             if (note.data.key != key || note.data.hit) continue;
-            float dist = Mathf.Abs(note.transform.position.x);
+            float dist = Mathf.Abs(note.transform.position.x - hitX);
             if (dist < minDist) { minDist = dist; closest = note; }
         }
 

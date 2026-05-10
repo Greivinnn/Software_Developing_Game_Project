@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public int multiplier = 1;
     public float baseNoteValue = 10f;
 
+    public InputFeedback inputFeedback;
+
     private AudioSource audioSource;
     private bool syncToAudio = false;
 
@@ -52,12 +54,14 @@ public class GameManager : MonoBehaviour
     {
         multiplier++;
         money += (int)(baseNoteValue * multiplier);
+        inputFeedback.ShowHit();
         Debug.Log("HIT | Money: " + money + " | Mult: " + multiplier);
     }
 
     public void MissNote()
     {
         multiplier = 1;
+        inputFeedback.ShowMiss();
         Debug.Log("MISS | Money: " + money + " | Mult: " + multiplier);
     }
 }

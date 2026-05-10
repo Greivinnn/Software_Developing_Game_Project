@@ -3,7 +3,7 @@ using UnityEngine;
 public class NoteObject : MonoBehaviour
 {
     public NoteData data;
-    public float speed = 5f;
+    public float speed = 15f;
     public float hitPositionX = 0f;
 
     private float holdTimer = 0f;
@@ -16,9 +16,9 @@ public class NoteObject : MonoBehaviour
 
     public void Init()
     {
+        hitPositionX = NoteManager.Instance.hitZone.transform.position.x; // read from scene
         originalSpeed = speed;
-        if (IsHoldNote)
-            DrawHoldLine();
+        if (IsHoldNote) DrawHoldLine();
     }
 
 
