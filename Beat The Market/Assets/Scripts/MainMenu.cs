@@ -1,26 +1,48 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject settingMenu;
-    public void PlayGame()
+    
+    public void OpenWindow()
     {
-        SceneManager.LoadScene("01_Prototype");
+        Debug.Log("Opening window...");
+        LeanTween.moveY(gameObject, 200, 0.5f).setEase(LeanTweenType.easeOutBack);
+        this.enabled = false; 
     }
 
-    public void Setting()
+    private void Update()
     {
-        settingMenu.SetActive(true);
+        if (Keyboard.current.anyKey.wasPressedThisFrame)
+        {
+            OpenWindow();
+        }
     }
 
-    public void CloseSetting()
+    public void QuitWindow()
     {
-        settingMenu.SetActive(false);
+        Application.Quit();
+        Debug.Log("Quitting application...");
     }
 
-    public void QuitGame()
+    public void Options()
     {
-         Application.Quit();
-         Debug.Log("Quit Game");
+        Debug.Log("Opening options...");
+    }
+
+    public void OpenVolume(GameObject theSlider)
+    {
+        bool isOpen = theSlider.activeSelf;
+
+        if (isOpen)
+        {
+            theSlider.SetActive(false);
+            return;
+        } else
+        {
+            theSlider.SetActive(true);
+        }
     }
 }
+
