@@ -40,12 +40,14 @@ public static class ChartPreProcessor
         ChartData chart,
         float spawnX,
         float hitX,
-        float spawnLeadTime)
+        float spawnLeadTime,
+        float noteSpeed = 15f)// change speed of note here)
     {
         List<PreProcessedNote> result = new List<PreProcessedNote>(chart.notes.Count);
 
-        float distance = spawnX - hitX; // travel distance, always positive
-        float speed = distance / spawnLeadTime; // uniform speed: all notes travel the same distance in the same lead time
+        float distance = spawnX - hitX;
+        float speed = noteSpeed;  
+        float adjustedLeadTime = distance / speed; 
 
         foreach (ChartNote cn in chart.notes)
         {
@@ -53,7 +55,7 @@ public static class ChartPreProcessor
 
             result.Add(new PreProcessedNote
             {
-                spawnTime = cn.time - spawnLeadTime,
+                spawnTime = cn.time - adjustedLeadTime,
                 hitTime = cn.time,
                 key = key,
                 speed = speed,
