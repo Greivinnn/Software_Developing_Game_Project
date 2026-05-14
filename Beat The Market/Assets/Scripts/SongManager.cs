@@ -1,140 +1,154 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
+// <summary>
+// Owns the full chart-load → pre-process → playback pipeline.
+// 
+// LEVEL SELECTION: Set SongManager.ChartToLoad from the menu/scene before
+// this scene loads, example:
+//     SongManager.ChartToLoad = "song2";
+//     SceneManager.LoadScene("GameScene");
+// 
+// Charts live in:  Assets/StreamingAssets/charts/<name>.json
+// Audio lives in:  Assets/Resources/Audio/<audioFile>.mp3  (or .ogg / .wav)
+// </summary>
 public class SongManager : MonoBehaviour
 {
     public static SongManager Instance;
 
-    [Header("References")]
+    // Set this from your level-select screen before loading the game scene
+    public static string ChartToLoad = "FirstLevelSong";
+
     public NoteManager noteManager;
     public AudioSource audioSource;
 
-    [Header("Settings")]
-    // How far ahead (in seconds) to spawn notes before they need to be hit.
-    // Must be long enough for the note to travel from spawn point to hit zone.
-    // Formula: spawnLead = distanceToHitZone / noteSpeed
-    // Example: spawnPoint at X=15, noteSpeed=5 ? 15/5 = 3 seconds
     public float spawnLeadTime = 3f;
+    public float noteSpeed = 15f;
 
     // --- private state ---
-    private ChartData currentChart;
-    private List<ChartNote> pendingNotes;  // notes not yet spawned
+    private System.Collections.Generic.List<PreProcessedNote> noteQueue;
+    private int nextNoteIndex = 0;
     private bool isPlaying = false;
-    private float songTime => audioSource.time; // always anchor to audio, not deltaTime
+    private float preRollTimer = 0f;
+    private bool songStarted = false;
 
-    private void Awake()
+    public float GetSongTime() => audioSource.time;
+    public bool IsPlaying() => isPlaying;
+
+    private void Awake() => Instance = this;
+
+    private void Start()
     {
-        Instance = this;
+        StartCoroutine(LoadChartAndStart(ChartToLoad));
     }
 
-    // -------------------------------------------------------
-    // Public API � call LoadAndPlay("my_song") from a menu
-    // or wherever you want to start a song
-    // -------------------------------------------------------
-    public void LoadAndPlay(string chartFileName)
-    {
-        StartCoroutine(LoadChartAndStart(chartFileName));
-    }
+    // -------------------------------------------------------------------------
+    // Loading + pre-processing (all happens before playback begins)
+    // -------------------------------------------------------------------------
 
     IEnumerator LoadChartAndStart(string chartFileName)
     {
-        // Load the JSON chart from StreamingAssets
-        string chartPath = Path.Combine(Application.streamingAssetsPath, "charts", chartFileName + ".json");
+        // 1. Load JSON chart
+        string chartPath = Path.Combine(
+            Application.streamingAssetsPath, "charts", chartFileName + ".json");
 
-        // UnityWebRequest works on all platforms including Android
+        ChartData chart = null;
+
         using (UnityWebRequest request = UnityWebRequest.Get(chartPath))
         {
             yield return request.SendWebRequest();
 
             if (request.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError("Failed to load chart: " + chartPath);
+                Debug.LogError($"SongManager: Failed to load chart at '{chartPath}': {request.error}");
                 yield break;
             }
 
-            string json = request.downloadHandler.text;
-            currentChart = JsonUtility.FromJson<ChartData>(json);
+            chart = JsonUtility.FromJson<ChartData>(request.downloadHandler.text);
+
+            if (chart == null || chart.notes == null || chart.notes.Count == 0)
+            {
+                Debug.LogError("SongManager: Chart is empty or malformed.");
+                yield break;
+            }
+
+            Debug.Log($"SongManager: Loaded chart '{chart.songName}' ({chart.notes.Count} notes).");
         }
 
-        // Load the audio clip from Resources/Audio/
-        ResourceRequest audioRequest = Resources.LoadAsync<AudioClip>("Audio/" + currentChart.audioFile);
+        // 2. Load audio clip
+        ResourceRequest audioRequest = Resources.LoadAsync<AudioClip>("Audio/" + chart.audioFile);
         yield return audioRequest;
 
         AudioClip clip = audioRequest.asset as AudioClip;
         if (clip == null)
         {
-            Debug.LogError("Failed to load audio: " + currentChart.audioFile +
-                           ". Make sure it's in Resources/Audio/");
+            Debug.LogError($"SongManager: Failed to load audio clip 'Audio/{chart.audioFile}'.");
             yield break;
         }
 
         audioSource.clip = clip;
+        Debug.Log($"SongManager: Audio loaded — '{clip.name}'.");
 
-        // Clone the note list so we can dequeue from it during gameplay
-        pendingNotes = new List<ChartNote>(currentChart.notes);
+        // 3. Pre-process all notes upfront
+        float spawnX = noteManager.spawnPoint.position.x;
+        float hitX = noteManager.hitZone.transform.position.x;
+        noteQueue = ChartPreProcessor.ProcessFromChart(chart, spawnX, hitX, spawnLeadTime, noteSpeed);
+        nextNoteIndex = 0;
 
-        // Sort by time just in case the JSON isn't ordered
-        pendingNotes.Sort((a, b) => a.time.CompareTo(b.time));
-
-        // Apply offset delay before starting audio
-        if (currentChart.offset > 0f)
-            yield return new WaitForSeconds(currentChart.offset);
-
-        audioSource.Play();
+        // 4. Start spawning notes immediately so they can travel to the hit zone
+        noteManager.chartMode = true;
         isPlaying = true;
 
-        // Tell GameManager audio has started so it can sync
-        GameManager.Instance.OnSongStart(audioSource);
+        // 5. Wait for notes to travel, THEN play the song
+        yield return new WaitForSeconds(spawnLeadTime);
 
-        Debug.Log("Now playing: " + currentChart.songName);
+        // 6. Fine-tune offset if needed
+        if (chart.offset > 0f)
+            yield return new WaitForSeconds(chart.offset);
+
+        // 7. Switch Update() to audio time and start the song
+        songStarted = true;
+        audioSource.Play();
+        GameManager.Instance.OnSongStart(audioSource);
+        Debug.Log($"SongManager: Now playing '{chart.songName}'.");
     }
 
-    // -------------------------------------------------------
-    // Spawn loop � checks every frame if a note is due
-    // -------------------------------------------------------
+    // -------------------------------------------------------------------------
+    // Spawn loop — executes the pre-built queue each frame
+    // -------------------------------------------------------------------------
+
     private void Update()
     {
-        if (!isPlaying || pendingNotes == null || pendingNotes.Count == 0)
-            return;
+        if (!isPlaying || noteQueue == null) return;
 
-        // Spawn any notes whose hit-time is within spawnLeadTime from now.
-        // We check the front of the sorted list; once a note isn't ready yet,
-        // nothing further in the list will be either.
-        while (pendingNotes.Count > 0 && pendingNotes[0].time <= songTime + spawnLeadTime)
+        float songTime;
+
+        if (songStarted)
         {
-            ChartNote chartNote = pendingNotes[0];
-            pendingNotes.RemoveAt(0);
-
-            KeyCode key = ParseKey(chartNote.key);
-            // Pass the exact hit-time so NoteObject can calculate precise speed
-            noteManager.SpawnChartNote(key, chartNote.time);
+            songTime = audioSource.time;
+        }
+        else
+        {
+            // Count up from -spawnLeadTime toward 0 before song starts
+            preRollTimer += Time.deltaTime;
+            songTime = preRollTimer - spawnLeadTime;
         }
 
-        // Stop when all notes are done and audio finishes
-        if (pendingNotes.Count == 0 && !audioSource.isPlaying)
+        while (nextNoteIndex < noteQueue.Count &&
+               noteQueue[nextNoteIndex].spawnTime <= songTime)
+        {
+            noteManager.SpawnPreProcessedNote(noteQueue[nextNoteIndex]);
+            nextNoteIndex++;
+        }
+
+        if (nextNoteIndex >= noteQueue.Count &&
+            audioSource.clip != null &&
+            audioSource.time >= audioSource.clip.length - 0.05f)
         {
             isPlaying = false;
             GameManager.Instance.OnSongEnd();
         }
     }
-
-    // -------------------------------------------------------
-    // Helpers
-    // -------------------------------------------------------
-    private KeyCode ParseKey(string keyStr)
-    {
-        return keyStr.ToUpper() switch
-        {
-            "D" => KeyCode.D,
-            "F" => KeyCode.F,
-            "J" => KeyCode.J,
-            "K" => KeyCode.K,
-            _ => KeyCode.D
-        };
-    }
-
-    public float GetSongTime() => songTime;
 }
