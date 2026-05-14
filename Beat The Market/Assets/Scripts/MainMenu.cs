@@ -1,15 +1,20 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    
+    [SerializeField]
+    Animator sceneAnim;
     public void OpenWindow()
     {
         Debug.Log("Opening window...");
-        LeanTween.moveY(gameObject, 200, 0.5f).setEase(LeanTweenType.easeOutBack);
-        this.enabled = false; 
+
+        RectTransform rect = GetComponent<RectTransform>();
+        LeanTween.moveY(rect, 900f, 0.5f).setEase(LeanTweenType.easeInBack);
+
+        this.enabled = false;
     }
 
     private void Update()
@@ -43,6 +48,18 @@ public class MainMenu : MonoBehaviour
         {
             theSlider.SetActive(true);
         }
+    }
+
+    public void PlayGame(string sceneName)
+    {
+        StartCoroutine(SceneLoad(sceneName));
+    }
+
+    IEnumerator SceneLoad(string sceneName)
+    {
+        sceneAnim.Play("Transition");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(sceneName);
     }
 }
 
