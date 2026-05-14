@@ -1,26 +1,65 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject settingMenu;
-    public void PlayGame()
+    [SerializeField]
+    Animator sceneAnim;
+    public void OpenWindow()
     {
-        SceneManager.LoadScene("01_Prototype");
+        Debug.Log("Opening window...");
+
+        RectTransform rect = GetComponent<RectTransform>();
+        LeanTween.moveY(rect, 900f, 0.5f).setEase(LeanTweenType.easeInBack);
+
+        this.enabled = false;
     }
 
-    public void Setting()
+    private void Update()
     {
-        settingMenu.SetActive(true);
+        if (Keyboard.current.anyKey.wasPressedThisFrame)
+        {
+            OpenWindow();
+        }
     }
 
-    public void CloseSetting()
+    public void QuitWindow()
     {
-        settingMenu.SetActive(false);
+        Application.Quit();
+        Debug.Log("Quitting application...");
     }
 
-    public void QuitGame()
+    public void Options()
     {
-         Application.Quit();
-         Debug.Log("Quit Game");
+        Debug.Log("Opening options...");
+    }
+
+    public void OpenVolume(GameObject theSlider)
+    {
+        bool isOpen = theSlider.activeSelf;
+
+        if (isOpen)
+        {
+            theSlider.SetActive(false);
+            return;
+        } else
+        {
+            theSlider.SetActive(true);
+        }
+    }
+
+    public void PlayGame(string sceneName)
+    {
+        StartCoroutine(SceneLoad(sceneName));
+    }
+
+    IEnumerator SceneLoad(string sceneName)
+    {
+        sceneAnim.Play("Transition");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(sceneName);
     }
 }
+
