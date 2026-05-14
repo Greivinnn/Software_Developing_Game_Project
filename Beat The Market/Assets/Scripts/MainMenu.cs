@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]
-    Animator sceneAnim;
+    GameObject transition;
     public void OpenWindow()
     {
         Debug.Log("Opening window...");
@@ -57,8 +57,8 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator SceneLoad(string sceneName)
     {
-        sceneAnim.Play("Transition");
-        yield return new WaitForSeconds(1f);
+        transition.SetActive(true);
+        yield return new WaitForSeconds(0.6f);
         SceneManager.LoadScene(sceneName);
     }
 }
