@@ -889,7 +889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HitZone
   lineHeight: 5
   lineWidth: 0.05
-  hitWindow: 0.3
+  hitWindow: 0.6
 --- !u!4 &1851838733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 335404228674606004, guid: ade614568b14fbb4aa7ba982515cc635, type: 3}
