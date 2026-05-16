@@ -8,7 +8,7 @@ on:
 
 jobs:
   buildForWindowsBasedPlatforms:
-    name: Build for StandaloneWindows64
+    name: Build for BeatTheMarketWin64
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
