@@ -17,6 +17,12 @@ public class MainMenu : MonoBehaviour
         this.enabled = false;
     }
 
+    public void OpenTutorial(GameObject theWindow)
+    {
+        theWindow.SetActive(!theWindow.activeSelf);
+        Debug.Log("Opening tutorial...");
+    }
+
     private void Update()
     {
         if (Keyboard.current.anyKey.wasPressedThisFrame)
@@ -58,7 +64,7 @@ public class MainMenu : MonoBehaviour
     IEnumerator SceneLoad(string sceneName)
     {
         transition.SetActive(true);
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.2f);
         SceneManager.LoadScene(sceneName);
     }
 }
