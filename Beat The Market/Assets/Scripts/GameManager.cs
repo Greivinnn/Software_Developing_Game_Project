@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         syncToAudio = false;
         Debug.Log($"Song over! Final score: {money}");
+        SceneManager.LoadScene("MainMenu");
         // TODO: show results screen
         // TODO: stop song from playing 
     }
