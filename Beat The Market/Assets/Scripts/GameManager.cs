@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +13,8 @@ public class GameManager : MonoBehaviour
     public float baseNoteValue = 10f;
 
     public InputFeedback inputFeedback;
+
+    public TextMeshProUGUI moneyTextEvent;
 
     private AudioSource audioSource;
     private bool syncToAudio = false;
@@ -29,7 +33,7 @@ public class GameManager : MonoBehaviour
         {
             songTime += Time.deltaTime;
         }
-            
+        moneyTextEvent.text = "Money: " + money;
     }
 
     // Called by SongManager when audio starts
@@ -65,5 +69,6 @@ public class GameManager : MonoBehaviour
         multiplier = 1;
         inputFeedback.ShowMiss();
         Debug.Log("MISS | Money: " + money + " | Mult: " + multiplier);
+        money -= 10; // penalty for missing
     }
 }
