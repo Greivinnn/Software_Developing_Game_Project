@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         {
             songTime += Time.deltaTime;
         }
-            
+
     }
 
     // Called by SongManager when audio starts
