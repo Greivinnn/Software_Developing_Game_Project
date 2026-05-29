@@ -25,8 +25,8 @@ public class SongManager : MonoBehaviour
     public AudioSource audioSource;
 
     public float spawnLeadTime = 3f;
-    public float noteSpeed = 15f;
-
+    public float noteSpeed = 1f;
+    public ChartGraph chartGraph; 
     // --- private state ---
     private System.Collections.Generic.List<PreProcessedNote> noteQueue;
     private int nextNoteIndex = 0;
