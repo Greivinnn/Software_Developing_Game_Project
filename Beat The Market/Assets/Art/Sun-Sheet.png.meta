@@ -1,0 +1,1859 @@
+fileFormatVersion: 2
+guid: 9b9839705870a1e4e9dd7b20a39ab015
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7437244292264231316
+    second: Sun-Sheet_0
+  - first:
+      213: -5738668896119356799
+    second: Sun-Sheet_1
+  - first:
+      213: 6081924098704776639
+    second: Sun-Sheet_2
+  - first:
+      213: -1312345176428589860
+    second: Sun-Sheet_3
+  - first:
+      213: -7608623954771668735
+    second: Sun-Sheet_4
+  - first:
+      213: -3688944065719513607
+    second: Sun-Sheet_5
+  - first:
+      213: 206393475399374180
+    second: Sun-Sheet_6
+  - first:
+      213: -7675868134068598160
+    second: Sun-Sheet_7
+  - first:
+      213: -8040138073286441832
+    second: Sun-Sheet_8
+  - first:
+      213: -3201685478077226783
+    second: Sun-Sheet_9
+  - first:
+      213: -2480524612022690858
+    second: Sun-Sheet_10
+  - first:
+      213: -4879739337424101552
+    second: Sun-Sheet_11
+  - first:
+      213: -5694259340658890080
+    second: Sun-Sheet_12
+  - first:
+      213: -5205069682480192429
+    second: Sun-Sheet_13
+  - first:
+      213: 5644552583823476797
+    second: Sun-Sheet_14
+  - first:
+      213: 5316040214467946451
+    second: Sun-Sheet_15
+  - first:
+      213: 7349028933285136227
+    second: Sun-Sheet_16
+  - first:
+      213: -4066848816348205480
+    second: Sun-Sheet_17
+  - first:
+      213: -4147682386100583232
+    second: Sun-Sheet_18
+  - first:
+      213: 782024117154215672
+    second: Sun-Sheet_19
+  - first:
+      213: -7971935259542940072
+    second: Sun-Sheet_20
+  - first:
+      213: 918024951541242498
+    second: Sun-Sheet_21
+  - first:
+      213: -4521774519657623295
+    second: Sun-Sheet_22
+  - first:
+      213: 149654508526420625
+    second: Sun-Sheet_23
+  - first:
+      213: 2825304429344848128
+    second: Sun-Sheet_24
+  - first:
+      213: 6181506311781964263
+    second: Sun-Sheet_25
+  - first:
+      213: -228731297902876259
+    second: Sun-Sheet_26
+  - first:
+      213: -4021445154095661681
+    second: Sun-Sheet_27
+  - first:
+      213: -3313746753207150366
+    second: Sun-Sheet_28
+  - first:
+      213: 5573109191218854384
+    second: Sun-Sheet_29
+  - first:
+      213: 3481099031185925387
+    second: Sun-Sheet_30
+  - first:
+      213: -4489096528154942190
+    second: Sun-Sheet_31
+  - first:
+      213: 2258180310355482527
+    second: Sun-Sheet_32
+  - first:
+      213: -4029485097149246319
+    second: Sun-Sheet_33
+  - first:
+      213: -6461758664663424742
+    second: Sun-Sheet_34
+  - first:
+      213: -9156918886039173800
+    second: Sun-Sheet_35
+  - first:
+      213: 1660488324430158564
+    second: Sun-Sheet_36
+  - first:
+      213: 6840071597910407014
+    second: Sun-Sheet_37
+  - first:
+      213: 4436715892488574949
+    second: Sun-Sheet_38
+  - first:
+      213: 1064240274117920302
+    second: Sun-Sheet_39
+  - first:
+      213: 4014891003713755458
+    second: Sun-Sheet_40
+  - first:
+      213: -2553901195602467753
+    second: Sun-Sheet_41
+  - first:
+      213: 767246440287518209
+    second: Sun-Sheet_42
+  - first:
+      213: 6752778418304919158
+    second: Sun-Sheet_43
+  - first:
+      213: 2230578331706217025
+    second: Sun-Sheet_44
+  - first:
+      213: 2894859619094686300
+    second: Sun-Sheet_45
+  - first:
+      213: -6735597201216725288
+    second: Sun-Sheet_46
+  - first:
+      213: 5272412065415386735
+    second: Sun-Sheet_47
+  - first:
+      213: -6134426484739164065
+    second: Sun-Sheet_48
+  - first:
+      213: -8892336582710150655
+    second: Sun-Sheet_49
+  - first:
+      213: 4734920239201421601
+    second: Sun-Sheet_50
+  - first:
+      213: 1470311944094231512
+    second: Sun-Sheet_51
+  - first:
+      213: -7995890123714009911
+    second: Sun-Sheet_52
+  - first:
+      213: -743076956965434225
+    second: Sun-Sheet_53
+  - first:
+      213: -514720304818963699
+    second: Sun-Sheet_54
+  - first:
+      213: -8532296039800133567
+    second: Sun-Sheet_55
+  - first:
+      213: 5342803349604707366
+    second: Sun-Sheet_56
+  - first:
+      213: 8622377958871983923
+    second: Sun-Sheet_57
+  - first:
+      213: -3106435908138411788
+    second: Sun-Sheet_58
+  - first:
+      213: 7105485275676025663
+    second: Sun-Sheet_59
+  - first:
+      213: -7354507239832312121
+    second: Sun-Sheet_60
+  - first:
+      213: 4365161125469223696
+    second: Sun-Sheet_61
+  - first:
+      213: -8465044933409560823
+    second: Sun-Sheet_62
+  - first:
+      213: -786200244299789782
+    second: Sun-Sheet_63
+  - first:
+      213: -1414439983661393474
+    second: Sun-Sheet_64
+  - first:
+      213: -3704221104670415671
+    second: Sun-Sheet_65
+  - first:
+      213: -972685523959407497
+    second: Sun-Sheet_66
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sun-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 232
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49106349746663760800000000000000
+      internalID: 7437244292264231316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 245
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18209333b072c50b0800000000000000
+      internalID: -5738668896119356799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 232
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbd9f2e8eb5576450800000000000000
+      internalID: 6081924098704776639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 225
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdcc640e30d99cde0800000000000000
+      internalID: -1312345176428589860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 238
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1019e4a43dcb86690800000000000000
+      internalID: -7608623954771668735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 225
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fdc086caec3eccc0800000000000000
+      internalID: -3688944065719513607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 224
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4655329b5c14dd200800000000000000
+      internalID: 206393475399374180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 6347
+        y: 146
+        width: 60
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07ac91eb996d97590800000000000000
+      internalID: -7675868134068598160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 156
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8940ba45501bb6090800000000000000
+      internalID: -8040138073286441832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 149
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e02eac55045193d0800000000000000
+      internalID: -3201685478077226783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 211
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6db16cbf108639dd0800000000000000
+      internalID: -2480524612022690858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 135
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05f16543deea74cb0800000000000000
+      internalID: -4879739337424101552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 211
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aaa3159c4de9f0b0800000000000000
+      internalID: -5694259340658890080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 198
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 354ec9093b0e3c7b0800000000000000
+      internalID: -5205069682480192429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 211
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d38cfca3baa755e40800000000000000
+      internalID: 5644552583823476797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 198
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d7ad03d86e56c940800000000000000
+      internalID: 5316040214467946451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 196
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3674784c0eefcf560800000000000000
+      internalID: 7349028933285136227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 5314
+        y: 111
+        width: 168
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85ee8527c86af87c0800000000000000
+      internalID: -4066848816348205480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 5693
+        y: 123
+        width: 60
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c4845f58d87076c0800000000000000
+      internalID: -4147682386100583232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 6020
+        y: 131
+        width: 60
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f6f3cc8ace4ada00800000000000000
+      internalID: 782024117154215672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 195
+        width: 31
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 856188a5e1ffd5190800000000000000
+      internalID: -7971935259542940072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 195
+        width: 31
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28a9f8b54da7dbc00800000000000000
+      internalID: 918024951541242498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 188
+        width: 31
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1011561280e6f31c0800000000000000
+      internalID: -4521774519657623295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 188
+        width: 31
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 192c0cb8bfda31200800000000000000
+      internalID: 149654508526420625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 122
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 009ff6dc86f753720800000000000000
+      internalID: 2825304429344848128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 111
+        width: 168
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e959925d3f19c550800000000000000
+      internalID: 6181506311781964263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 183
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d992c7fa81263dcf0800000000000000
+      internalID: -228731297902876259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 183
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8d796a50f4f038c0800000000000000
+      internalID: -4021445154095661681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 1793
+        y: 174
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e8db7b82e43302d0800000000000000
+      internalID: -3313746753207150366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 4660
+        y: 111
+        width: 168
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f970152849a75d40800000000000000
+      internalID: 5573109191218854384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 4987
+        y: 111
+        width: 168
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b052bcd00295f4030800000000000000
+      internalID: 3481099031185925387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 174
+        width: 31
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 215a2eced7683b1c0800000000000000
+      internalID: -4489096528154942190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 174
+        width: 31
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f971585270ba65f10800000000000000
+      internalID: 2258180310355482527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 1741
+        y: 161
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19450bc37a46418c0800000000000000
+      internalID: -4029485097149246319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 1831
+        y: 161
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a112f68fab83356a0800000000000000
+      internalID: -6461758664663424742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 2120
+        y: 157
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 855c190e9c61ce080800000000000000
+      internalID: -9156918886039173800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 4333
+        y: 111
+        width: 168
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ead75b555d3b0710800000000000000
+      internalID: 1660488324430158564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66730b7c0e0dcee50800000000000000
+      internalID: 6840071597910407014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e79c15f891629d30800000000000000
+      internalID: 4436715892488574949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 137
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e26867604e0f4ce00800000000000000
+      internalID: 1064240274117920302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 137
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24915489812c7b730800000000000000
+      internalID: 4014891003713755458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 161
+        width: 31
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7546bacc468be8cd0800000000000000
+      internalID: -2553901195602467753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 161
+        width: 31
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10e3588829ec5aa00800000000000000
+      internalID: 767246440287518209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 1717
+        y: 111
+        width: 168
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6762df59130b6bd50800000000000000
+      internalID: 6752778418304919158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1425801bc2b94fe10800000000000000
+      internalID: 2230578331706217025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 2158
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5ae2c66c7b9c2820800000000000000
+      internalID: 2894859619094686300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 2447
+        y: 136
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8de9c5f380a5682a0800000000000000
+      internalID: -6735597201216725288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 4006
+        y: 111
+        width: 168
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f66519cc6de5b2940800000000000000
+      internalID: 5272412065415386735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 128
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f58bf5c1d932edaa0800000000000000
+      internalID: -6134426484739164065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 121
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10ab95cddf2189480800000000000000
+      internalID: -8892336582710150655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 111
+        width: 168
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1298861fed0d5b140800000000000000
+      internalID: 4734920239201421601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 123
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8db20c05ce8976410800000000000000
+      internalID: 1470311944094231512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 123
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c4e8f8eb44e80190800000000000000
+      internalID: -7995890123714009911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 111
+        width: 168
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8c0c43d17f00b5f0800000000000000
+      internalID: -743076956965434225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 2044
+        y: 111
+        width: 168
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0bb5902c985bd8f0800000000000000
+      internalID: -514720304818963699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 2371
+        y: 111
+        width: 168
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 148ad3535f1379980800000000000000
+      internalID: -8532296039800133567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 2395
+        y: 123
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62ca4fdc653752a40800000000000000
+      internalID: 5342803349604707366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 2485
+        y: 123
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 337e8bdf117d8a770800000000000000
+      internalID: 8622377958871983923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 2698
+        y: 111
+        width: 168
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f854e90009b3e4d0800000000000000
+      internalID: -3106435908138411788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 3352
+        y: 111
+        width: 168
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3320753631cb9260800000000000000
+      internalID: 7105485275676025663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 3679
+        y: 111
+        width: 168
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c6a1c791aa8fe990800000000000000
+      internalID: -7354507239832312121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 111
+        width: 168
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01bffee7aea249c30800000000000000
+      internalID: 4365161125469223696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 111
+        width: 168
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90727689b7e168a80800000000000000
+      internalID: -8465044933409560823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 3025
+        y: 111
+        width: 168
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a8f241b0bd615f0800000000000000
+      internalID: -786200244299789782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 5641
+        y: 111
+        width: 168
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb9d0c13456ee5ce0800000000000000
+      internalID: -1414439983661393474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 5968
+        y: 111
+        width: 168
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c46d96f786f79cc0800000000000000
+      internalID: -3704221104670415671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sun-Sheet_66
+      rect:
+        serializedVersion: 2
+        x: 6295
+        y: 111
+        width: 168
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77c1c326ba35082f0800000000000000
+      internalID: -972685523959407497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Sun-Sheet_0: 7437244292264231316
+      Sun-Sheet_1: -5738668896119356799
+      Sun-Sheet_10: -2480524612022690858
+      Sun-Sheet_11: -4879739337424101552
+      Sun-Sheet_12: -5694259340658890080
+      Sun-Sheet_13: -5205069682480192429
+      Sun-Sheet_14: 5644552583823476797
+      Sun-Sheet_15: 5316040214467946451
+      Sun-Sheet_16: 7349028933285136227
+      Sun-Sheet_17: -4066848816348205480
+      Sun-Sheet_18: -4147682386100583232
+      Sun-Sheet_19: 782024117154215672
+      Sun-Sheet_2: 6081924098704776639
+      Sun-Sheet_20: -7971935259542940072
+      Sun-Sheet_21: 918024951541242498
+      Sun-Sheet_22: -4521774519657623295
+      Sun-Sheet_23: 149654508526420625
+      Sun-Sheet_24: 2825304429344848128
+      Sun-Sheet_25: 6181506311781964263
+      Sun-Sheet_26: -228731297902876259
+      Sun-Sheet_27: -4021445154095661681
+      Sun-Sheet_28: -3313746753207150366
+      Sun-Sheet_29: 5573109191218854384
+      Sun-Sheet_3: -1312345176428589860
+      Sun-Sheet_30: 3481099031185925387
+      Sun-Sheet_31: -4489096528154942190
+      Sun-Sheet_32: 2258180310355482527
+      Sun-Sheet_33: -4029485097149246319
+      Sun-Sheet_34: -6461758664663424742
+      Sun-Sheet_35: -9156918886039173800
+      Sun-Sheet_36: 1660488324430158564
+      Sun-Sheet_37: 6840071597910407014
+      Sun-Sheet_38: 4436715892488574949
+      Sun-Sheet_39: 1064240274117920302
+      Sun-Sheet_4: -7608623954771668735
+      Sun-Sheet_40: 4014891003713755458
+      Sun-Sheet_41: -2553901195602467753
+      Sun-Sheet_42: 767246440287518209
+      Sun-Sheet_43: 6752778418304919158
+      Sun-Sheet_44: 2230578331706217025
+      Sun-Sheet_45: 2894859619094686300
+      Sun-Sheet_46: -6735597201216725288
+      Sun-Sheet_47: 5272412065415386735
+      Sun-Sheet_48: -6134426484739164065
+      Sun-Sheet_49: -8892336582710150655
+      Sun-Sheet_5: -3688944065719513607
+      Sun-Sheet_50: 4734920239201421601
+      Sun-Sheet_51: 1470311944094231512
+      Sun-Sheet_52: -7995890123714009911
+      Sun-Sheet_53: -743076956965434225
+      Sun-Sheet_54: -514720304818963699
+      Sun-Sheet_55: -8532296039800133567
+      Sun-Sheet_56: 5342803349604707366
+      Sun-Sheet_57: 8622377958871983923
+      Sun-Sheet_58: -3106435908138411788
+      Sun-Sheet_59: 7105485275676025663
+      Sun-Sheet_6: 206393475399374180
+      Sun-Sheet_60: -7354507239832312121
+      Sun-Sheet_61: 4365161125469223696
+      Sun-Sheet_62: -8465044933409560823
+      Sun-Sheet_63: -786200244299789782
+      Sun-Sheet_64: -1414439983661393474
+      Sun-Sheet_65: -3704221104670415671
+      Sun-Sheet_66: -972685523959407497
+      Sun-Sheet_7: -7675868134068598160
+      Sun-Sheet_8: -8040138073286441832
+      Sun-Sheet_9: -3201685478077226783
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
