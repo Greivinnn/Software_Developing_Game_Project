@@ -25,8 +25,8 @@ public static class ChartPreProcessor
     // Lane Y positions
     private static readonly Dictionary<KeyCode, float> keyLanes = new Dictionary<KeyCode, float>
     {
-        { KeyCode.D, 3.5f }, // (top)
-        { KeyCode.F, 1.5f },
+        { KeyCode.D, 2.7f }, // (top)
+        { KeyCode.F, 0.5f },
         { KeyCode.J, -1.5f },
         { KeyCode.K, -3.5f }  // (bottom)
     };

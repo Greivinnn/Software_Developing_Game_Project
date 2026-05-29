@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class HitZone : MonoBehaviour
 {
-    public float lineHeight = 5f;
+    public float lineYBottom = -2.5f;  
+    public float lineYTop = 2.5f;      
     public float lineWidth = 0.05f;
-    public float hitWindow = 1.5f; // always match InputManager's hitWindow
+    public float hitWindow = 1.5f;
 
     void Start()
     {
-        DrawLine(transform.position.x, Color.yellow, 0.08f);        // exact hit line
-        DrawLine(transform.position.x + hitWindow, Color.red, 0.03f); // right boundary
-        DrawLine(transform.position.x - hitWindow, Color.red, 0.03f); // left boundary
+        DrawLine(transform.position.x, Color.yellow, 0.08f);
+        DrawLine(transform.position.x + hitWindow, Color.red, 0.03f);
+        DrawLine(transform.position.x - hitWindow, Color.red, 0.03f);
     }
 
     void DrawLine(float x, Color color, float width)
@@ -20,12 +21,11 @@ public class HitZone : MonoBehaviour
 
         LineRenderer lr = obj.AddComponent<LineRenderer>();
         lr.positionCount = 2;
-        lr.SetPosition(0, new Vector3(x, -lineHeight, 0));
-        lr.SetPosition(1, new Vector3(x, lineHeight, 0));
+        lr.SetPosition(0, new Vector3(x, lineYBottom, 0));
+        lr.SetPosition(1, new Vector3(x, lineYTop, 0));
 
         lr.startWidth = width;
         lr.endWidth = width;
-
         lr.material = new Material(Shader.Find("Sprites/Default"));
         lr.startColor = color;
         lr.endColor = color;
