@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         {
             songTime += Time.deltaTime;
         }
+        moneyTextEvent.text = "Money: " + money;
     }
 
     // Called by SongManager when audio starts
