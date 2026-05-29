@@ -49,6 +49,9 @@ public class NoteObject : MonoBehaviour
 
     private void Update()
     {
+        if (!data.isBeingHeld)
+            speed = GameManager.Instance.CurrentNoteSpeed;
+
         transform.position += Vector3.left * speed * Time.deltaTime;
 
         if (transform.position.x <= hitPositionX - 1f && !data.hit)
@@ -76,6 +79,9 @@ public class NoteObject : MonoBehaviour
             {
                 holdCompleted = true;
                 GameManager.Instance.HitNote();
+                if (ChartGraph.Instance != null) ChartGraph.Instance.AddPoint(data.time, data.key == KeyCode.D ? 3.5f :
+                                                                           data.key == KeyCode.F ? 1.5f :
+                                                                           data.key == KeyCode.J ? -1.5f : -3.5f);
                 NoteManager.Instance.RemoveNote(this);
                 Destroy(gameObject);
             }
@@ -94,6 +100,8 @@ public class NoteObject : MonoBehaviour
         else
         {
             GameManager.Instance.HitNote();
+            // add this line:
+            if (ChartGraph.Instance != null) ChartGraph.Instance.AddPoint(data.time, transform.position.y); 
             NoteManager.Instance.RemoveNote(this);
             Destroy(gameObject);
         }

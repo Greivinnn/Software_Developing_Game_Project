@@ -12,6 +12,12 @@ public class GameManager : MonoBehaviour
     public int multiplier = 1;
     public float baseNoteValue = 10f;
 
+    public int speedLevel = 1;
+    public float baseNoteSpeed = 1f;
+    public float noteSpeedMultiplierScale = 0.2f; // how much each multiplier step adds
+
+    public float CurrentNoteSpeed => Mathf.Min(baseNoteSpeed + (speedLevel - 1) * noteSpeedMultiplierScale, 25f);
+
     public InputFeedback inputFeedback;
 
     public TextMeshProUGUI moneyTextEvent;
@@ -58,7 +64,8 @@ public class GameManager : MonoBehaviour
 
     public void HitNote()
     {
-        multiplier++;
+        multiplier = Mathf.Min(multiplier + 1, 10);
+        speedLevel = Mathf.Min(speedLevel + 1, 10);
         money += (int)(baseNoteValue * multiplier);
         inputFeedback.ShowHit();
         Debug.Log("HIT | Money: " + money + " | Mult: " + multiplier);
@@ -67,6 +74,7 @@ public class GameManager : MonoBehaviour
     public void MissNote()
     {
         multiplier = 1;
+        speedLevel = Mathf.Max(1, speedLevel - 3);
         inputFeedback.ShowMiss();
         Debug.Log("MISS | Money: " + money + " | Mult: " + multiplier);
         money -= 10; // penalty for missing
