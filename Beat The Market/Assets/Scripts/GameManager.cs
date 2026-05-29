@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         {
             songTime += Time.deltaTime;
         }
-        moneyTextEvent.text = "Money: " + money;
+        moneyTextEvent.text = money.ToString();
     }
 
     // Called by SongManager when audio starts
