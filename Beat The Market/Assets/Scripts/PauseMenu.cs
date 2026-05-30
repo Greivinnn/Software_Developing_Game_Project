@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.pKey.wasPressedThisFrame)
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             if (isPaused) Resume();
             else Pause();
