@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
 
     public float CurrentNoteSpeed => Mathf.Min(baseNoteSpeed + (speedLevel - 1) * noteSpeedMultiplierScale, 25f);
 
-    public InputFeedback inputFeedback;
-
     public TextMeshProUGUI moneyTextEvent;
 
     private AudioSource audioSource;
@@ -68,7 +66,6 @@ public class GameManager : MonoBehaviour
         multiplier = Mathf.Min(multiplier + 1, 10);
         speedLevel = Mathf.Min(speedLevel + 1, 10);
         money += (int)(baseNoteValue * multiplier);
-        inputFeedback.ShowHit();
         Debug.Log("HIT | Money: " + money + " | Mult: " + multiplier);
     }
 
@@ -76,7 +73,6 @@ public class GameManager : MonoBehaviour
     {
         multiplier = 1;
         speedLevel = Mathf.Max(1, speedLevel - 3);
-        inputFeedback.ShowMiss();
         Debug.Log("MISS | Money: " + money + " | Mult: " + multiplier);
         money -= 10; // penalty for missing
     }

@@ -17,26 +17,25 @@ public class NoteManager : MonoBehaviour
     // Set to true by SongManager before playback begins
     [HideInInspector] public bool chartMode = false;
 
-    public Sprite spriteD;
-    public Sprite spriteF;
-    public Sprite spriteJ;
-    public Sprite spriteK;
-    
+    public AnimatorOverrideController overrideD;
+    public AnimatorOverrideController overrideF;
+    public AnimatorOverrideController overrideJ;
+    public AnimatorOverrideController overrideK;
+
     public HitZone hitZone;
 
-    private Dictionary<KeyCode, Sprite> noteSprites;
+    private Dictionary<KeyCode, AnimatorOverrideController> noteControllers;
 
     private void Awake()
     {
         Instance = this;
-
-        noteSprites = new Dictionary<KeyCode, Sprite>
-        {
-            { KeyCode.D, spriteD },
-            { KeyCode.F, spriteF },
-            { KeyCode.J, spriteJ },
-            { KeyCode.K, spriteK }
-        };
+        noteControllers = new Dictionary<KeyCode, AnimatorOverrideController>
+    {
+        { KeyCode.D, overrideD },
+        { KeyCode.F, overrideF },
+        { KeyCode.J, overrideJ },
+        { KeyCode.K, overrideK }
+    };
     }
 
     // -------------------------------------------------------------------------
@@ -65,10 +64,10 @@ public class NoteManager : MonoBehaviour
         note.Init();
 
         // Apply the correct sprite for this key
-        if (noteSprites.TryGetValue(n.key, out Sprite sprite))
+        if (noteControllers.TryGetValue(n.key, out AnimatorOverrideController controller))
         {
-            SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
-            if (sr != null) sr.sprite = sprite;
+            Animator anim = obj.GetComponent<Animator>();
+            if (anim != null) anim.runtimeAnimatorController = controller;
         }
 
         activeNotes.Add(note);

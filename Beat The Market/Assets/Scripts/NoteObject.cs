@@ -11,6 +11,7 @@ public class NoteObject : MonoBehaviour
     private LineRenderer holdLine;
     private float originalSpeed;
     private float holdNoteLineOffset = 0.19f;
+    private Animator animator;
 
     public bool IsHoldNote => data.duration > 0f;
 
@@ -18,6 +19,7 @@ public class NoteObject : MonoBehaviour
     {
         hitPositionX = NoteManager.Instance.hitZone.transform.position.x; // read from scene
         originalSpeed = speed;
+        animator = GetComponent<Animator>();
         if (IsHoldNote) DrawHoldLine();
     }
 
@@ -93,9 +95,28 @@ public class NoteObject : MonoBehaviour
         }
     }
 
+    private void PlayHitAnimation()
+    {
+        if (animator == null) return;
+
+        string trigger = data.key switch
+        {
+            KeyCode.D => "HitD",
+            KeyCode.F => "HitF",
+            KeyCode.J => "HitJ",
+            KeyCode.K => "HitK",
+            _ => null
+        };
+
+        if (trigger != null)
+            animator.SetTrigger(trigger);
+    }
+
+
     public void OnHit()
     {
         data.hit = true;
+        PlayHitAnimation();
 
         if (IsHoldNote)
         {
@@ -108,7 +129,7 @@ public class NoteObject : MonoBehaviour
             // add this line:
             if (ChartGraph.Instance != null) ChartGraph.Instance.AddPoint(data.time, transform.position.y); 
             NoteManager.Instance.RemoveNote(this);
-            Destroy(gameObject);
+            Destroy(gameObject, 0.4f);
         }
     }
 
