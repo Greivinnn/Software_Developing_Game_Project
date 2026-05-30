@@ -51,7 +51,7 @@ public class NoteObject : MonoBehaviour
 
     private void Update()
     {
-        if (!data.isBeingHeld)
+        if (!data.isBeingHeld && !data.hit)
             speed = GameManager.Instance.CurrentNoteSpeed;
 
         transform.position += Vector3.left * speed * Time.deltaTime;
@@ -128,6 +128,9 @@ public class NoteObject : MonoBehaviour
             GameManager.Instance.HitNote();
             if (ChartGraph.Instance != null) ChartGraph.Instance.AddPoint(data.time, transform.position.y); 
             NoteManager.Instance.RemoveNote(this);
+            
+            speed = 0f; 
+
             Destroy(gameObject, 0.4f);
         }
     }
