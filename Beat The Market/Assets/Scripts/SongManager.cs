@@ -27,6 +27,7 @@ public class SongManager : MonoBehaviour
     public float spawnLeadTime = 3f;
     public float noteSpeed = 1f;
     public ChartGraph chartGraph; 
+
     // --- private state ---
     private System.Collections.Generic.List<PreProcessedNote> noteQueue;
     private int nextNoteIndex = 0;
@@ -45,10 +46,6 @@ public class SongManager : MonoBehaviour
     {
         StartCoroutine(LoadChartAndStart(ChartToLoad));
     }
-
-    // -------------------------------------------------------------------------
-    // Loading + pre-processing (all happens before playback begins)
-    // -------------------------------------------------------------------------
 
     IEnumerator LoadChartAndStart(string chartFileName)
     {

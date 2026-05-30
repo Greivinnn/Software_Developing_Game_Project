@@ -20,6 +20,7 @@ public class PreProcessedNote
 // Converts a ChartData JSON into a pre-sorted list of PreProcessedNotes.
 // All timing and speed calculations happen here, once, before the song starts.
 // </summary>
+
 public static class ChartPreProcessor
 {
     // Lane Y positions
@@ -41,7 +42,7 @@ public static class ChartPreProcessor
         float spawnX,
         float hitX,
         float spawnLeadTime,
-        float noteSpeed = 15f)// change speed of note here)
+        float noteSpeed = 15f) 
     {
         List<PreProcessedNote> result = new List<PreProcessedNote>(chart.notes.Count);
 
@@ -71,13 +72,10 @@ public static class ChartPreProcessor
         return result;
     }
 
-    // -------------------------------------------------------------------------
-    // Helpers
-    // -------------------------------------------------------------------------
-
     // <summary>
     // converts the string key "D" in the JSON file to a readable KeyCode for unity
     // </summary>
+
     private static KeyCode ParseKey(string keyStr)
     {
         if (string.IsNullOrEmpty(keyStr))

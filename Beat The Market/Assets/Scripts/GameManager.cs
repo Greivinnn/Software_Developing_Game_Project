@@ -18,12 +18,9 @@ public class GameManager : MonoBehaviour
 
     public float CurrentNoteSpeed => Mathf.Min(baseNoteSpeed + (speedLevel - 1) * noteSpeedMultiplierScale, 25f);
 
-    [Header("UI")]
     public TextMeshProUGUI moneyTextEvent;
-    public ResultsUI resultsUI; // Assign in Inspector
+    public ResultsUI resultsUI;
 
-    [Header("Level Goal")]
-    // Set this in the Inspector for each level's scene, OR use SetMoneyTarget() from a LevelData script
     public int moneyTarget = 0;
 
     private AudioSource audioSource;

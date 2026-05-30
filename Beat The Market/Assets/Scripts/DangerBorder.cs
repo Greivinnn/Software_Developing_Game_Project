@@ -5,22 +5,18 @@ public class DangerBorder : MonoBehaviour
 {
     public static DangerBorder Instance;
 
-    [Header("Safe Zone")]
     public float safeZoneEndSeconds = 5f; // suppress border in last N seconds of song
 
-    [Header("References")]
+
     public Image[] borderPanels;
 
-    [Header("Danger Threshold")]
     public float dangerStartX = -5f;
     public float dangerEndX = -7.51f;
 
-    [Header("Danger Blink")]
     public float blinkSpeedMin = 1f;    // slow at first entering danger
     public float blinkSpeedMax = 8f;    // fast when at the wall
     public float maxAlpha = 0.3f;
 
-    [Header("Idle Blink (no hits yet)")]
     public float idleBlinkSpeedMin = 0.5f;  // slow at start of song
     public float idleBlinkSpeedMax = 4f;    // fast when time is almost up
     public float idleMaxAlpha = 0.3f;
