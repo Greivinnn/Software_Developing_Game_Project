@@ -147,6 +147,7 @@ public class SongManager : MonoBehaviour
             audioSource.time >= audioSource.clip.length - 0.05f)
         {
             isPlaying = false;
+            ChartGraph.Instance.SetSongEnding();
             GameManager.Instance.OnSongEnd();
         }
     }
