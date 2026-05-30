@@ -46,7 +46,7 @@ public class ResultsUI : MonoBehaviour
             scoreText.text = $"${finalScore}";
 
         if (targetText != null)
-            targetText.text = $"Goal: ${target}";
+            targetText.text = $"${target}";
 
         if (resultDetailText != null)
         {
