@@ -584,10 +584,10 @@ MonoBehaviour:
   spawnPoint: {fileID: 1851838733}
   activeNotes: []
   chartMode: 0
-  spriteD: {fileID: 6573084918405699794, guid: 3b558326eb69a5b418bac063ad6416ed, type: 3}
-  spriteF: {fileID: -4003422213590950777, guid: 9bb7822b961a9f7418175f7712a99246, type: 3}
-  spriteJ: {fileID: -2429739713983439293, guid: 99ae519c921ff8647bd2ebe81b0a4f21, type: 3}
-  spriteK: {fileID: -4521327577415033219, guid: b5c77569daf47f34aaa3b0e06bead18d, type: 3}
+  overrideD: {fileID: 0}
+  overrideF: {fileID: 0}
+  overrideJ: {fileID: 0}
+  overrideK: {fileID: 0}
   hitZone: {fileID: 1689602882}
 --- !u!1 &408086667
 GameObject:
@@ -1304,13 +1304,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   songTime: 0
   money: 0
+  notePenalty: 50
   multiplier: 1
   baseNoteValue: 10
   speedLevel: 1
   baseNoteSpeed: 5
   noteSpeedMultiplierScale: 0.2
-  inputFeedback: {fileID: 1878631464}
   moneyTextEvent: {fileID: 1513781833}
+  resultsUI: {fileID: 0}
+  moneyTarget: 0
 --- !u!1 &919293399
 GameObject:
   m_ObjectHideFlags: 0

@@ -165,8 +165,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteManager
   notePrefab: {fileID: 7911815502547965689, guid: 6762fc28ce2df3d4faef21a134cf38f8, type: 3}
   spawnPoint: {fileID: 1851838733}
-  noteSpeed: 5
   activeNotes: []
+  chartMode: 0
+  overrideD: {fileID: 0}
+  overrideF: {fileID: 0}
+  overrideJ: {fileID: 0}
+  overrideK: {fileID: 0}
+  hitZone: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,8 +439,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   songTime: 0
   money: 0
+  notePenalty: 50
   multiplier: 1
   baseNoteValue: 10
+  speedLevel: 1
+  baseNoteSpeed: 1
+  noteSpeedMultiplierScale: 0.2
+  moneyTextEvent: {fileID: 0}
+  resultsUI: {fileID: 0}
+  moneyTarget: 0
 --- !u!1 &947597839
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,6 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
   noteManager: {fileID: 390985115}
+  hitWindow: 1.5
 --- !u!4 &947597841
 Transform:
   m_ObjectHideFlags: 0

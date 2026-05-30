@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public float CurrentNoteSpeed => Mathf.Min(baseNoteSpeed + (speedLevel - 1) * noteSpeedMultiplierScale, 25f);
 
     public TextMeshProUGUI moneyTextEvent;
+    public TextMeshProUGUI multiplierText;
     public ResultsUI resultsUI;
 
     public int moneyTarget = 0;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
             songTime += Time.deltaTime;
 
         moneyTextEvent.text = $"{money}";
+        multiplierText.text = $"x{multiplier}";
     }
 
     public void SetMoneyTarget(int target)
