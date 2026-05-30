@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public int speedLevel = 1;
     public float baseNoteSpeed = 1f;
     public float noteSpeedMultiplierScale = 0.2f;
+    public float lastNoteHitTime = -1f;
 
     public float CurrentNoteSpeed => Mathf.Min(baseNoteSpeed + (speedLevel - 1) * noteSpeedMultiplierScale, 25f);
 
@@ -82,6 +83,7 @@ public class GameManager : MonoBehaviour
         multiplier = Mathf.Min(multiplier + 1, 10);
         speedLevel = Mathf.Min(speedLevel + 1, 10);
         money += (int)(baseNoteValue * multiplier);
+        lastNoteHitTime = songTime;
         Debug.Log("HIT | Money: " + money + " | Mult: " + multiplier);
     }
 

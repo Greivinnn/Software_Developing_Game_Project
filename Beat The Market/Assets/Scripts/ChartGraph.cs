@@ -119,6 +119,11 @@ public class ChartGraph : MonoBehaviour
     {
         if (gameOverTriggered) return;
 
+        if (SongManager.Instance != null &&
+            GameManager.Instance.lastNoteHitTime >= 0f &&
+            GameManager.Instance.songTime - GameManager.Instance.lastNoteHitTime < SongManager.Instance.endGameSafeSeconds)
+            return;
+
         gameOverTriggered = true;
         lineRenderer.positionCount = 0;
         Debug.Log("ChartGraph: Game Over - line left the screen.");
@@ -127,6 +132,6 @@ public class ChartGraph : MonoBehaviour
 
     public void SetSongEnding()
     {
-        gameOverTriggered = true; // reuse this flag to stop all game over checks
+        gameOverTriggered = true; 
     }
 }
