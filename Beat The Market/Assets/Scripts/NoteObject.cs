@@ -79,9 +79,14 @@ public class NoteObject : MonoBehaviour
             {
                 holdCompleted = true;
                 GameManager.Instance.HitNote();
-                if (ChartGraph.Instance != null) ChartGraph.Instance.AddPoint(data.time, data.key == KeyCode.D ? 3.5f :
-                                                                           data.key == KeyCode.F ? 1.5f :
-                                                                           data.key == KeyCode.J ? -1.5f : -3.5f);
+                if (ChartGraph.Instance != null)
+                    ChartGraph.Instance.AddPoint(
+                        data.time,
+                        data.key == KeyCode.D ? 3.5f :
+                        data.key == KeyCode.F ? 1.5f :
+                        data.key == KeyCode.J ? -1.5f : -3.5f,
+                        data.key  // <-- pass the key so ChartGraph can use the Y overrides
+                    );
                 NoteManager.Instance.RemoveNote(this);
                 Destroy(gameObject);
             }
