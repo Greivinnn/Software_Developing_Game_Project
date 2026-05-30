@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         else
             songTime += Time.deltaTime;
 
-        moneyTextEvent.text = $"{money}";
+        moneyTextEvent.text = $"${money}";
         multiplierText.text = $"x{multiplier}";
     }
 
