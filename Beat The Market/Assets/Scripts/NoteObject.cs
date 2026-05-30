@@ -36,7 +36,7 @@ public class NoteObject : MonoBehaviour
 
         float lineLength = originalSpeed * data.duration;
 
-        holdLine.SetPosition(0, new Vector3(lineLength, 0f, 0f)); // extends left
+        holdLine.SetPosition(0, new Vector3(lineLength, 0f, 0f)); 
         holdLine.SetPosition(1, new Vector3(holdNoteLineOffset, 0f, 0f));
 
         // line height thickness
@@ -87,7 +87,7 @@ public class NoteObject : MonoBehaviour
                         data.key == KeyCode.D ? 3.5f :
                         data.key == KeyCode.F ? 1.5f :
                         data.key == KeyCode.J ? -1.5f : -3.5f,
-                        data.key  // <-- pass the key so ChartGraph can use the Y overrides
+                        data.key
                     );
                 NoteManager.Instance.RemoveNote(this);
                 Destroy(gameObject);
@@ -126,7 +126,6 @@ public class NoteObject : MonoBehaviour
         else
         {
             GameManager.Instance.HitNote();
-            // add this line:
             if (ChartGraph.Instance != null) ChartGraph.Instance.AddPoint(data.time, transform.position.y); 
             NoteManager.Instance.RemoveNote(this);
             Destroy(gameObject, 0.4f);

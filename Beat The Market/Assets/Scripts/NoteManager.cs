@@ -73,14 +73,6 @@ public class NoteManager : MonoBehaviour
         activeNotes.Add(note);
     }
 
-    // -------------------------------------------------------------------------
-    // Queries & Removal
-    // -------------------------------------------------------------------------
-
-    /// <summary>
-    /// Returns the closest unhit note for the given key to the hit zone (X=0).
-    /// Used by InputManager to determine what the player is trying to hit.
-    /// </summary>
     public NoteObject GetClosestNote(KeyCode key)
     {
         NoteObject closest = null;

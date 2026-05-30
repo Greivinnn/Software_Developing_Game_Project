@@ -13,14 +13,11 @@ public class ChartGraph : MonoBehaviour
     public float totalSongDuration = 112f;
     public bool HasNoHits() => lastHitSongTime < 0f;
 
-    [Header("Clip")]
     public float clipLeftX = -7f;
 
-    [Header("Game Over")]
     public float gameOverX = -5f;
     public float gameOverInactivityTime = 8f;
 
-    [Header("Lane Y Overrides")]
     public float laneY_D = 3.5f;
     public float laneY_F = 1.5f;
     public float laneY_J = -1.5f;
@@ -54,7 +51,6 @@ public class ChartGraph : MonoBehaviour
 
         float secondsVisible = graphWidth;
 
-        // Cull hits too old to be on screen
         hits.RemoveAll(h => (now - h.songTime) > secondsVisible);
 
         // --- Game Over Check ---

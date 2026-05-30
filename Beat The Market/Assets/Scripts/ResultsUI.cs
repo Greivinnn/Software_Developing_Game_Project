@@ -6,33 +6,25 @@ using System.Collections;
 
 public class ResultsUI : MonoBehaviour
 {
-    [Header("Panel")]
-    public GameObject resultsPanel;       // The root panel to show/hide
+    public GameObject resultsPanel;       
 
-    [Header("Text Elements")]
-    public TextMeshProUGUI titleText;      // "LEVEL COMPLETE" or "LEVEL FAILED"
-    public TextMeshProUGUI scoreText;      // Final score display
-    public TextMeshProUGUI targetText;     // "Goal: X"
-    public TextMeshProUGUI resultDetailText; // e.g. "You earned $430 / $500"
+    public TextMeshProUGUI titleText;      
+    public TextMeshProUGUI scoreText;      
+    public TextMeshProUGUI targetText;    
+    public TextMeshProUGUI resultDetailText; 
 
-    [Header("Buttons")]
-    public GameObject retryButton;        // Always shown
-    public GameObject nextLevelButton;    // Only shown on win
-    public GameObject mainMenuButton;     // Always shown
+    public GameObject retryButton;        
+    public GameObject nextLevelButton;    
+    public GameObject mainMenuButton;     
 
-    [Header("Styling (optional)")]
-    public UnityEngine.UI.Image panelBackground; // Panel background image
+    public UnityEngine.UI.Image panelBackground; 
     public Color winColor = new Color(0.2f, 0.8f, 0.3f);
     public Color loseColor = new Color(0.9f, 0.2f, 0.2f);
 
-    [Header("Next Level")]
-    // Set the name of the next scene to load on win.
-    // Leave blank to disable the Next Level button.
     public string nextLevelSceneName = "";
 
     private void Awake()
     {
-        // Make sure the panel is hidden at start
         if (resultsPanel != null)
             resultsPanel.SetActive(false);
     }
@@ -47,19 +39,15 @@ public class ResultsUI : MonoBehaviour
 
         resultsPanel.SetActive(true);
 
-        // Title
         if (titleText != null)
             titleText.text = won ? "LEVEL COMPLETE!" : "LEVEL FAILED";
 
-        // Score
         if (scoreText != null)
             scoreText.text = $"${finalScore}";
 
-        // Target
         if (targetText != null)
             targetText.text = $"Goal: ${target}";
 
-        // Detail line
         if (resultDetailText != null)
         {
             resultDetailText.text = won
@@ -67,22 +55,18 @@ public class ResultsUI : MonoBehaviour
                 : $"So close... (${finalScore} / ${target})";
         }
 
-        // Panel color
         if (panelBackground != null)
             panelBackground.color = won ? winColor : loseColor;
 
-        // Next level button — only show on win AND if a scene name is set
         if (nextLevelButton != null)
             nextLevelButton.SetActive(won && !string.IsNullOrEmpty(nextLevelSceneName));
 
-        // Retry / main menu always visible
         if (retryButton != null)
             retryButton.SetActive(true);
         if (mainMenuButton != null)
             mainMenuButton.SetActive(true);
     }
 
-    // ── Button callbacks ─────────────────────────────────────────────────────
 
     public void OnRetryClicked()
     {
