@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -9,16 +8,23 @@ public class GameManager : MonoBehaviour
 
     public float songTime = 0f;
     public int money = 0;
+    public int notePenalty = 50;
     public int multiplier = 1;
     public float baseNoteValue = 10f;
 
     public int speedLevel = 1;
     public float baseNoteSpeed = 1f;
-    public float noteSpeedMultiplierScale = 0.2f; // how much each multiplier step adds
+    public float noteSpeedMultiplierScale = 0.2f;
 
     public float CurrentNoteSpeed => Mathf.Min(baseNoteSpeed + (speedLevel - 1) * noteSpeedMultiplierScale, 25f);
 
+    [Header("UI")]
     public TextMeshProUGUI moneyTextEvent;
+    public ResultsUI resultsUI; // Assign in Inspector
+
+    [Header("Level Goal")]
+    // Set this in the Inspector for each level's scene, OR use SetMoneyTarget() from a LevelData script
+    public int moneyTarget = 0;
 
     private AudioSource audioSource;
     private bool syncToAudio = false;
@@ -27,20 +33,19 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // If possible alway use audio source time for better syncing and no bugs
-        // fall back to delta time if anything fails
         if (syncToAudio && audioSource != null && audioSource.isPlaying)
-        {
             songTime = audioSource.time;
-        }
         else
-        {
             songTime += Time.deltaTime;
-        }
-        moneyTextEvent.text = money.ToString();
+
+        moneyTextEvent.text = $"{money}";
     }
 
-    // Called by SongManager when audio starts
+    public void SetMoneyTarget(int target)
+    {
+        moneyTarget = target;
+    }
+
     public void OnSongStart(AudioSource source)
     {
         audioSource = source;
@@ -51,14 +56,26 @@ public class GameManager : MonoBehaviour
     }
 
     // Called by SongManager when the song ends
-    public void OnSongEnd()
+    public void OnSongEnd(bool forceFail = false)
     {
         syncToAudio = false;
-        Debug.Log($"Song over! Final score: {money}");
-        SceneManager.LoadScene("MainMenu");
+        bool won = !forceFail && money >= moneyTarget;
+        Debug.Log($"Song over! Final score: {money} | Target: {moneyTarget} | Result: {(won ? "WIN" : "LOSS")}");
 
-        // TODO: show results screen
-        // TODO: stop song from playing 
+        // Stop the audio
+        if (audioSource != null)
+            audioSource.Stop();
+
+        // Stop note spawning
+        if (NoteManager.Instance != null)
+            NoteManager.Instance.enabled = false;
+
+        Time.timeScale = 0f;
+
+        if (resultsUI != null)
+            resultsUI.Show(won, money, moneyTarget);
+        else
+            Debug.LogWarning("GameManager: ResultsUI not assigned!");
     }
 
     public void HitNote()
@@ -73,7 +90,8 @@ public class GameManager : MonoBehaviour
     {
         multiplier = 1;
         speedLevel = Mathf.Max(1, speedLevel - 3);
+        money -= notePenalty;
+        money = Mathf.Max(0, money); // clamp so money never goes negative
         Debug.Log("MISS | Money: " + money + " | Mult: " + multiplier);
-        money -= 10; // penalty for missing
     }
 }

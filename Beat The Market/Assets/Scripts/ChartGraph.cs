@@ -122,9 +122,18 @@ public class ChartGraph : MonoBehaviour
     private void TriggerGameOver()
     {
         if (gameOverTriggered) return;
+
+        // Don't game over if player already hit the money target
+        if (GameManager.Instance != null && GameManager.Instance.money >= GameManager.Instance.moneyTarget)
+        {
+            gameOverTriggered = true;
+            GameManager.Instance.OnSongEnd(forceFail: false);
+            return;
+        }
+
         gameOverTriggered = true;
         lineRenderer.positionCount = 0;
         Debug.Log("ChartGraph: Game Over - line left the screen.");
-        GameManager.Instance.OnSongEnd();
+        GameManager.Instance.OnSongEnd(forceFail: true);
     }
 }
