@@ -37,6 +37,8 @@ public class SongManager : MonoBehaviour
     public float GetSongTime() => audioSource.time;
     public bool IsPlaying() => isPlaying;
 
+    public float GetSongLength() => audioSource.clip != null ? audioSource.clip.length : 0f;
+
     private void Awake() => Instance = this;
 
     private void Start()
