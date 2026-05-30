@@ -26,7 +26,7 @@ public class SongManager : MonoBehaviour
 
     public float spawnLeadTime = 3f;
     public float noteSpeed = 1f;
-    public ChartGraph chartGraph; 
+    public float endGameSafeSeconds = 20f;
 
     // --- private state ---
     private System.Collections.Generic.List<PreProcessedNote> noteQueue;
@@ -142,12 +142,17 @@ public class SongManager : MonoBehaviour
             nextNoteIndex++;
         }
 
+        if (GameManager.Instance.lastNoteHitTime >= 0f &&
+       GameManager.Instance.songTime - GameManager.Instance.lastNoteHitTime >= endGameSafeSeconds)
+        {
+            ChartGraph.Instance.SetSongEnding();
+        }
+
         if (nextNoteIndex >= noteQueue.Count &&
             audioSource.clip != null &&
             audioSource.time >= audioSource.clip.length - 0.05f)
         {
             isPlaying = false;
-            ChartGraph.Instance.SetSongEnding();
             GameManager.Instance.OnSongEnd();
         }
     }
