@@ -2170,7 +2170,7 @@ MonoBehaviour:
   baseNoteValue: 10
   speedLevel: 1
   baseNoteSpeed: 5
-  noteSpeedMultiplierScale: 0.4
+  noteSpeedMultiplierScale: 0.01
   lastNoteHitTime: -1
   moneyTextEvent: {fileID: 1513781833}
   multiplierText: {fileID: 437651394}
@@ -2984,7 +2984,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.017, y: 0.028814813}
   m_AnchorMax: {x: 0.98352087, y: 0.97}
-  m_AnchoredPosition: {x: 0.6743164, y: 0.98760986}
+  m_AnchoredPosition: {x: 0.6743164, y: 0.9876709}
   m_SizeDelta: {x: -32.2449, y: -30.1788}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1266559391
