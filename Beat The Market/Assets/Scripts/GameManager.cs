@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public float noteSpeedMultiplierScale = 0.2f;
     public float lastNoteHitTime = -1f;
 
-    public float CurrentNoteSpeed => Mathf.Min(baseNoteSpeed + (speedLevel - 1) * noteSpeedMultiplierScale, 25f);
+    public float CurrentPitch => Mathf.Min(1f + (speedLevel - 1) * noteSpeedMultiplierScale, 1.3f);
 
     public TextMeshProUGUI moneyTextEvent;
     public TextMeshProUGUI multiplierText;
@@ -27,13 +27,18 @@ public class GameManager : MonoBehaviour
 
     private AudioSource audioSource;
     private bool syncToAudio = false;
+    private float currentPitch = 1f;
 
     private void Awake() => Instance = this;
 
     private void Update()
     {
         if (syncToAudio && audioSource != null && audioSource.isPlaying)
+        {
+            currentPitch = Mathf.Lerp(currentPitch, CurrentPitch, Time.deltaTime * 2f);
+            audioSource.pitch = currentPitch;
             songTime = audioSource.time;
+        }
         else
             songTime += Time.deltaTime;
 
@@ -90,7 +95,7 @@ public class GameManager : MonoBehaviour
     public void MissNote()
     {
         multiplier = 1;
-        speedLevel = Mathf.Max(1, speedLevel - 3);
+        speedLevel = Mathf.Max(1, speedLevel - 1);
         money -= notePenalty;
         money = Mathf.Max(0, money); // clamp so money never goes negative
         Debug.Log("MISS | Money: " + money + " | Mult: " + multiplier);
