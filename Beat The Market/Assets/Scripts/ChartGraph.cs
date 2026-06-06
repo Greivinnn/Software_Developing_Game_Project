@@ -125,6 +125,10 @@ public class ChartGraph : MonoBehaviour
             return;
 
         gameOverTriggered = true;
+
+        if (GameManager.Instance != null && GameManager.Instance.hitZone != null)
+            GameManager.Instance.hitZone.HideLines();
+
         lineRenderer.positionCount = 0;
         Debug.Log("ChartGraph: Game Over - line left the screen.");
         GameManager.Instance.OnSongEnd(forceFail: true);
