@@ -526,6 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b09304c3dcae5d74e90901b2eb9a3b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SongManager
+  ChartToLoad: TutorialLevelSong
   noteManager: {fileID: 390985115}
   audioSource: {fileID: 40517857}
   spawnLeadTime: 3
@@ -2172,6 +2173,7 @@ MonoBehaviour:
   baseNoteSpeed: 5
   noteSpeedMultiplierScale: 0.01
   lastNoteHitTime: -1
+  hitZone: {fileID: 1689602882}
   moneyTextEvent: {fileID: 1513781833}
   multiplierText: {fileID: 437651394}
   resultsUI: {fileID: 531481247}
