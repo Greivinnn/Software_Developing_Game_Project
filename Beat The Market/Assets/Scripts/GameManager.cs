@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI multiplierText;
     public ResultsUI resultsUI;
 
+    public Animator multNumber;
+    public Animator CurrentMoney;
+
     public int moneyTarget = 0;
 
     private AudioSource audioSource;
@@ -91,8 +94,10 @@ public class GameManager : MonoBehaviour
     public void HitNote()
     {
         multiplier = Mathf.Min(multiplier + 1, 10);
+        multNumber.Play("IncreaseAnim");
         speedLevel = Mathf.Min(speedLevel + 1, 10);
         money += (int)(baseNoteValue * multiplier);
+        CurrentMoney.Play("CurrentMoney");
         lastNoteHitTime = songTime;
         Debug.Log("HIT | Money: " + money + " | Mult: " + multiplier);
     }
