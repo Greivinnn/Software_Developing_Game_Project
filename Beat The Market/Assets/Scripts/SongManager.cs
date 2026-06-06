@@ -19,7 +19,8 @@ public class SongManager : MonoBehaviour
     public static SongManager Instance;
 
     // Set this from your level-select screen before loading the game scene
-    public static string ChartToLoad = "TutorialLevelSong";
+    [SerializeField]
+    public string ChartToLoad = "TutorialLevelSong";
 
     public NoteManager noteManager;
     public AudioSource audioSource;

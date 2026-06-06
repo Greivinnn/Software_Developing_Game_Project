@@ -31,4 +31,10 @@ public class HitZone : MonoBehaviour
         lr.endColor = color;
         lr.sortingOrder = 1;
     }
+
+    public void HideLines()
+    {
+        foreach (Transform child in transform)
+            Destroy(child.gameObject);
+    }
 }

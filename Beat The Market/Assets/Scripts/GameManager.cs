@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public float noteSpeedMultiplierScale = 0.2f;
     public float lastNoteHitTime = -1f;
 
+    public HitZone hitZone;
+
     public float CurrentPitch => Mathf.Min(1f + (speedLevel - 1) * noteSpeedMultiplierScale, 1.3f);
 
     public TextMeshProUGUI moneyTextEvent;
@@ -70,6 +72,9 @@ public class GameManager : MonoBehaviour
         // Stop the audio
         if (audioSource != null)
             audioSource.Stop();
+
+        if (hitZone != null)
+            hitZone.HideLines();
 
         // Stop note spawning
         if (NoteManager.Instance != null)
