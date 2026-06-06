@@ -1,0 +1,525 @@
+fileFormatVersion: 2
+guid: 783487debe8a17f42bc4fe6886ec51b8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3382042577357256140
+    second: Mult-Sheet 1_0
+  - first:
+      213: 6734950420472310177
+    second: Mult-Sheet 1_1
+  - first:
+      213: 3637800211185584489
+    second: Mult-Sheet 1_2
+  - first:
+      213: -39817009577357071
+    second: Mult-Sheet 1_3
+  - first:
+      213: 7213772497457619740
+    second: Mult-Sheet 1_4
+  - first:
+      213: 3770215982748136240
+    second: Mult-Sheet 1_5
+  - first:
+      213: -6199652111134861648
+    second: Mult-Sheet 1_6
+  - first:
+      213: -6960508244615036219
+    second: Mult-Sheet 1_7
+  - first:
+      213: -8604866083515393350
+    second: Mult-Sheet 1_8
+  - first:
+      213: -6738353788403700199
+    second: Mult-Sheet 1_9
+  - first:
+      213: 9130769504025460704
+    second: Mult-Sheet 1_10
+  - first:
+      213: -7668699165625811130
+    second: Mult-Sheet 1_11
+  - first:
+      213: -4899433293321795532
+    second: Mult-Sheet 1_12
+  - first:
+      213: -1408348148687240586
+    second: Mult-Sheet 1_13
+  - first:
+      213: 7928373245971765097
+    second: Mult-Sheet 1_14
+  - first:
+      213: -8821239778601959259
+    second: Mult-Sheet 1_15
+  - first:
+      213: 4926640563786181708
+    second: Mult-Sheet 1_16
+  - first:
+      213: -556979880630409369
+    second: Mult-Sheet 1_17
+  - first:
+      213: -749899231437735080
+    second: Mult-Sheet 1_18
+  - first:
+      213: -1015867223176444901
+    second: Mult-Sheet 1_19
+  - first:
+      213: 6489883954276258417
+    second: Mult-Sheet 1_20
+  - first:
+      213: 1078590668672800219
+    second: Mult-Sheet 1_21
+  - first:
+      213: 79978156993691777
+    second: Mult-Sheet 1_22
+  - first:
+      213: -374541417303440692
+    second: Mult-Sheet 1_23
+  - first:
+      213: 1788432430600128767
+    second: Mult-Sheet 1_24
+  - first:
+      213: -3946512859849577655
+    second: Mult-Sheet 1_25
+  - first:
+      213: 8748023022069800949
+    second: Mult-Sheet 1_26
+  - first:
+      213: 8662166702559601606
+    second: Mult-Sheet 1_27
+  - first:
+      213: -9172592764656384963
+    second: Mult-Sheet 1_28
+  - first:
+      213: -6050292766039951484
+    second: Mult-Sheet 1_29
+  - first:
+      213: 3717807154667235955
+    second: Mult-Sheet 1_30
+  - first:
+      213: 8223155027498818902
+    second: Mult-Sheet 1_31
+  - first:
+      213: -1907302031455437197
+    second: Mult-Sheet 1_32
+  - first:
+      213: -8454209529167782589
+    second: Mult-Sheet 1_33
+  - first:
+      213: 4499171388405118683
+    second: Mult-Sheet 1_34
+  - first:
+      213: -1642319375983083032
+    second: Mult-Sheet 1_35
+  - first:
+      213: -7586718695839068197
+    second: Mult-Sheet 1_36
+  - first:
+      213: -330471022526835673
+    second: Mult-Sheet 1_37
+  - first:
+      213: 5009313895687115540
+    second: Mult-Sheet 1_38
+  - first:
+      213: 4406900230834205166
+    second: Mult-Sheet 1_39
+  - first:
+      213: 4000621293562275198
+    second: Mult-Sheet 1_40
+  - first:
+      213: -2103151826019326734
+    second: Mult-Sheet 1_41
+  - first:
+      213: -6561319738104584606
+    second: Mult-Sheet 1_42
+  - first:
+      213: -884863603452878867
+    second: Mult-Sheet 1_43
+  - first:
+      213: 1217354122469958805
+    second: Mult-Sheet 1_44
+  - first:
+      213: -4119759232824082827
+    second: Mult-Sheet 1_45
+  - first:
+      213: 6305361233300441578
+    second: Mult-Sheet 1_46
+  - first:
+      213: 7139043999636890026
+    second: Mult-Sheet 1_47
+  - first:
+      213: 2948836725381123842
+    second: Mult-Sheet 1_48
+  - first:
+      213: 4110851777514773435
+    second: Mult-Sheet 1_49
+  - first:
+      213: 23381928576015951
+    second: Mult-Sheet 1_50
+  - first:
+      213: 7222260015703347557
+    second: Mult-Sheet 1_51
+  - first:
+      213: -204049006435635519
+    second: Mult-Sheet 1_52
+  - first:
+      213: -3106209482487873325
+    second: Mult-Sheet 1_53
+  - first:
+      213: -8833783032460693238
+    second: Mult-Sheet 1_54
+  - first:
+      213: -1872471368536483148
+    second: Mult-Sheet 1_55
+  - first:
+      213: -7649890408842413123
+    second: Mult-Sheet 1_56
+  - first:
+      213: 5561510179264630175
+    second: Mult-Sheet 1_57
+  - first:
+      213: -7506256049728750320
+    second: Mult-Sheet 1_58
+  - first:
+      213: 1995432442170465073
+    second: Mult-Sheet 1_59
+  - first:
+      213: 6228284174483247819
+    second: Mult-Sheet 1_60
+  - first:
+      213: -3856612134961269738
+    second: Mult-Sheet 1_61
+  - first:
+      213: -312178019300943916
+    second: Mult-Sheet 1_62
+  - first:
+      213: 4051062520159099512
+    second: Mult-Sheet 1_63
+  - first:
+      213: -5616947408451240544
+    second: Mult-Sheet 1_64
+  - first:
+      213: -7702430617102528954
+    second: Mult-Sheet 1_65
+  - first:
+      213: -7409917544472149162
+    second: Mult-Sheet 1_66
+  - first:
+      213: 6408481335685113419
+    second: Mult-Sheet 1_67
+  - first:
+      213: 5477272759686250982
+    second: Mult-Sheet 1_68
+  - first:
+      213: 5188179165996678648
+    second: Mult-Sheet 1_69
+  - first:
+      213: 2396297521017006777
+    second: Mult-Sheet 1_70
+  - first:
+      213: 6867467280857460559
+    second: Mult-Sheet 1_71
+  - first:
+      213: -375561062930401524
+    second: Mult-Sheet 1_72
+  - first:
+      213: 5480272931451585817
+    second: Mult-Sheet 1_73
+  - first:
+      213: -370074280874350487
+    second: Mult-Sheet 1_74
+  - first:
+      213: 8046152145882407461
+    second: Mult-Sheet 1_75
+  - first:
+      213: -1017500149334425824
+    second: Mult-Sheet 1_76
+  - first:
+      213: 1703854061023730810
+    second: Mult-Sheet 1_77
+  - first:
+      213: 8123465580555299312
+    second: Mult-Sheet 1_78
+  - first:
+      213: 8371032111022326975
+    second: Mult-Sheet 1_79
+  - first:
+      213: -4943027659069640508
+    second: Mult-Sheet 1_80
+  - first:
+      213: -5772770674680948276
+    second: Mult-Sheet 1_81
+  - first:
+      213: 4632936669683463198
+    second: Mult-Sheet 1_82
+  - first:
+      213: -6454901169827458694
+    second: Mult-Sheet 1_83
+  - first:
+      213: -7307399103572983600
+    second: Mult-Sheet 1_84
+  - first:
+      213: 8835814733497791549
+    second: Mult-Sheet 1_85
+  - first:
+      213: 8866544523589689346
+    second: Mult-Sheet 1_86
+  - first:
+      213: 1088286460471942204
+    second: Mult-Sheet 1_87
+  - first:
+      213: -7454082152506643351
+    second: Mult-Sheet 1_88
+  - first:
+      213: -2298289850996634086
+    second: Mult-Sheet 1_89
+  - first:
+      213: -698354246073873027
+    second: Mult-Sheet 1_90
+  - first:
+      213: -4700534177593093900
+    second: Mult-Sheet 1_91
+  - first:
+      213: 7742720573452932804
+    second: Mult-Sheet 1_92
+  - first:
+      213: -1115916223173188711
+    second: Mult-Sheet 1_93
+  - first:
+      213: -8831812913369164872
+    second: Mult-Sheet 1_94
+  - first:
+      213: -2157875229680031296
+    second: Mult-Sheet 1_95
+  - first:
+      213: -5955749649876416064
+    second: Mult-Sheet 1_96
+  - first:
+      213: 8103547123006423423
+    second: Mult-Sheet 1_97
+  - first:
+      213: 7348885298288792658
+    second: Mult-Sheet 1_98
+  - first:
+      213: 2367405022148052926
+    second: Mult-Sheet 1_99
+  - first:
+      213: -9022006643925374771
+    second: Mult-Sheet 1_100
+  - first:
+      213: 5618406901593685437
+    second: Mult-Sheet 1_101
+  - first:
+      213: 8105278946162514809
+    second: Mult-Sheet 1_102
+  - first:
+      213: -3824134967441519492
+    second: Mult-Sheet 1_103
+  - first:
+      213: 6582333304497731343
+    second: Mult-Sheet 1_104
+  - first:
+      213: -2229867652106303612
+    second: Mult-Sheet 1_105
+  - first:
+      213: 2483974746555202996
+    second: Mult-Sheet 1_106
+  - first:
+      213: 1574431916378374913
+    second: Mult-Sheet 1_107
+  - first:
+      213: 6743783048267298923
+    second: Mult-Sheet 1_108
+  - first:
+      213: 8098510635238673477
+    second: Mult-Sheet 1_109
+  - first:
+      213: 663975052482241364
+    second: Mult-Sheet 1_110
+  - first:
+      213: 4807440246590745244
+    second: Mult-Sheet 1_111
+  - first:
+      213: -6152185338651937910
+    second: Mult-Sheet 1_112
+  - first:
+      213: 6503462007404609157
+    second: Mult-Sheet 1_113
+  - first:
+      213: 2181387319731702286
+    second: Mult-Sheet 1_114
+  - first:
+      213: 6569795070616902590
+    second: Mult-Sheet 1_115
+  - first:
+      213: 3506113561746022608
+    second: Mult-Sheet 1_116
+  - first:
+      213: -420120114538326632
+    second: Mult-Sheet 1_117
+  - first:
+      213: 7949302482007232974
+    second: Mult-Sheet 1_118
+  - first:
+      213: -3517538466685237787
+    second: Mult-Sheet 1_119
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mult-Sheet 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 313
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc530a62ecd6fee20800000000000000
+      internalID: 3382042577357256140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mult-Sheet 1_1
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 0
+        width: 313
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a9ae1069b9577d50800000000000000
+      internalID: 6734950420472310177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2695670746a071b4d9167c833080818c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":313.0,"y":195.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Mult-Sheet 1_0: 3382042577357256140
+      Mult-Sheet 1_1: 6734950420472310177
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
