@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // <summary>
@@ -99,6 +100,9 @@ public class NoteManager : MonoBehaviour
             if (note.data.key == key && note.data.isBeingHeld)
                 return note;
         }
+
         return null;
     }
+
+    
 }
