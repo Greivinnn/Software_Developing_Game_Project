@@ -526,11 +526,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b09304c3dcae5d74e90901b2eb9a3b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SongManager
+  ChartToLoad: TutorialLevelSong
   noteManager: {fileID: 390985115}
   audioSource: {fileID: 40517857}
   spawnLeadTime: 3
   noteSpeed: 5
-  chartGraph: {fileID: 0}
+  endGameSafeSeconds: 20
 --- !u!4 &318910562
 Transform:
   m_ObjectHideFlags: 0
@@ -1616,6 +1617,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667064435}
   m_CullTransparentMesh: 1
+--- !u!1 &713269200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 713269202}
+  - component: {fileID: 713269201}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &713269201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713269200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87a94284abecaf4db2e19cfb1718071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  sounds:
+  - clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+  - clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+  - clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+--- !u!4 &713269202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713269200}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.90846, y: 2.10889, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &741657753
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,6 +2135,8 @@ MonoBehaviour:
   speedLevel: 1
   baseNoteSpeed: 5
   noteSpeedMultiplierScale: 0.01
+  lastNoteHitTime: -1
+  hitZone: {fileID: 0}
   moneyTextEvent: {fileID: 1513781833}
   multiplierText: {fileID: 437651394}
   resultsUI: {fileID: 531481247}
@@ -4108,10 +4165,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 910783946}
   - {fileID: 741657755}
   - {fileID: 24524807}
   - {fileID: 619394802}
-  - {fileID: 910783946}
   - {fileID: 390985114}
   - {fileID: 4983191246271216292}
   - {fileID: 947597841}
@@ -4127,3 +4184,4 @@ SceneRoots:
   - {fileID: 1928002464}
   - {fileID: 1396042391}
   - {fileID: 4865514061478167012}
+  - {fileID: 713269202}
