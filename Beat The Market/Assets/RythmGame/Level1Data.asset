@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1Data
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelName: Level 1
-  sceneName: 01_Prototype
-  nextLevelSceneName: MainMenu
+  sceneName: Level 1
+  nextLevelSceneName: Level 2
   moneyTarget: 3000
   song: {fileID: 8300000, guid: 04037d324c0fe8644b750ae7de72161f, type: 3}

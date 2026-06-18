@@ -1509,7 +1509,7 @@ MonoBehaviour:
   panelBackground: {fileID: 0}
   winColor: {r: 0.32520473, g: 0.5471698, b: 0.1264685, a: 1}
   loseColor: {r: 0.6901961, g: 0, b: 0, a: 1}
-  nextLevelSceneName: MainMenu
+  nextLevelSceneName: Level 2
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
