@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public Animator multNumber;
     public Animator CurrentMoney;
 
-    public int moneyTarget = 0;
+    public int moneyTarget;
 
     private AudioSource audioSource;
     private bool syncToAudio = false;
