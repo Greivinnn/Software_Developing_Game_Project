@@ -15,5 +15,5 @@ MonoBehaviour:
   levelName: Level 2
   sceneName: Level 2
   nextLevelSceneName: Level 3
-  moneyTarget: 3000
+  moneyTarget: 10000
   song: {fileID: 0}

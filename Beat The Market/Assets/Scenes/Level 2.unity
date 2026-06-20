@@ -2203,7 +2203,7 @@ MonoBehaviour:
   resultsUI: {fileID: 531481247}
   multNumber: {fileID: 437651396}
   CurrentMoney: {fileID: 1513781835}
-  moneyTarget: 3000
+  moneyTarget: 10000
 --- !u!114 &910783948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2891,7 +2891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $3000
+  m_text: $10000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 128686c97f51f804588031a8d0ca8a7d, type: 2}
   m_sharedMaterial: {fileID: -4096815345959246143, guid: 128686c97f51f804588031a8d0ca8a7d, type: 2}
