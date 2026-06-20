@@ -524,12 +524,11 @@ Transform:
   m_GameObject: {fileID: 289142277}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.418581, y: -0.28881395, z: 0}
-  m_LocalScale: {x: 0.2879043, y: 0.28144202, z: 0.2929161}
+  m_LocalPosition: {x: 0.055, y: -0.021, z: 0}
+  m_LocalScale: {x: 1.0162739, y: 1.0165665, z: 1.1373616}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1274882280}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 1274882280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &289142279
 Animator:
@@ -641,7 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b09304c3dcae5d74e90901b2eb9a3b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SongManager
-  ChartToLoad: TutorialLevelSong
+  ChartToLoad: FirstLevelSong
   noteManager: {fileID: 390985115}
   audioSource: {fileID: 40517857}
   spawnLeadTime: 3
@@ -1510,7 +1509,7 @@ MonoBehaviour:
   panelBackground: {fileID: 0}
   winColor: {r: 0.32520473, g: 0.5471698, b: 0.1264685, a: 1}
   loseColor: {r: 0.6901961, g: 0, b: 0, a: 1}
-  nextLevelSceneName: MainMenu
+  nextLevelSceneName: Level 3
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,6 +2153,7 @@ GameObject:
   - component: {fileID: 910783946}
   - component: {fileID: 910783947}
   - component: {fileID: 910783948}
+  - component: {fileID: 910783949}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2217,6 +2217,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   MenuUI: {fileID: 1198932627}
+--- !u!114 &910783949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910783945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87a94284abecaf4db2e19cfb1718071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  sounds: []
 --- !u!1 &919293399
 GameObject:
   m_ObjectHideFlags: 0
@@ -3160,12 +3173,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274882277}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.079, y: -0.025, z: 0}
-  m_LocalScale: {x: 0.9889066, y: 0.9984591, z: 0.8792278}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.403, y: -0.283, z: 0}
+  m_LocalScale: {x: 0.283294, y: 0.2768555, z: 0.25754}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 289142278}
+  m_Children:
+  - {fileID: 289142278}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1396042391
 PrefabInstance:
@@ -4156,7 +4170,7 @@ PrefabInstance:
     - target: {fileID: 3956016461325684849, guid: ba98a964642575c42a3c4fd8751e4c42, type: 3}
       propertyPath: levelData
       value: 
-      objectReference: {fileID: 11400000, guid: 5ed3e4f5845be51448b80b3b2d043e6c, type: 2}
+      objectReference: {fileID: 11400000, guid: 2cb3baa846f68e84299336739870aeaa, type: 2}
     - target: {fileID: 7816370206675116709, guid: ba98a964642575c42a3c4fd8751e4c42, type: 3}
       propertyPath: m_Name
       value: LevelLoader
@@ -4241,7 +4255,7 @@ SceneRoots:
   - {fileID: 531481246}
   - {fileID: 1689602881}
   - {fileID: 1469693593}
-  - {fileID: 289142278}
+  - {fileID: 1274882280}
   - {fileID: 408086670}
   - {fileID: 1139299293}
   - {fileID: 1928002464}

@@ -7,6 +7,10 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField]
     GameObject transition;
+    [SerializeField]
+    AudioSource pressSFX = null;
+
+
     public void OpenWindow()
     {
         Debug.Log("Opening window...");
@@ -27,6 +31,7 @@ public class MainMenu : MonoBehaviour
     {
         if (Keyboard.current.anyKey.wasPressedThisFrame)
         {
+            pressSFX.Play();
             OpenWindow();
         }
     }

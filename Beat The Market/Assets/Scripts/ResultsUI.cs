@@ -76,6 +76,7 @@ public class ResultsUI : MonoBehaviour
 
     public void OnNextLevelClicked()
     {
+        Debug.Log($"OnNextLevelClicked fired. nextLevelSceneName = '{nextLevelSceneName}'");
         if (string.IsNullOrEmpty(nextLevelSceneName))
         {
             Debug.LogWarning("ResultsUI: nextLevelSceneName is empty.");
